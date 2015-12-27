@@ -7,25 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6954F6FC1C2FF65100B1860F /* DoTheMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6954F6FB1C2FF65100B1860F /* DoTheMath.m */; };
 		69F958B51C2DAFB600592020 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958B41C2DAFB600592020 /* main.m */; };
 		69F958B81C2DAFB600592020 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958B71C2DAFB600592020 /* AppDelegate.m */; };
-		69F958BB1C2DAFB600592020 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958BA1C2DAFB600592020 /* ViewController.m */; };
 		69F958BE1C2DAFB600592020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F958BC1C2DAFB600592020 /* Main.storyboard */; };
 		69F958C01C2DAFB600592020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69F958BF1C2DAFB600592020 /* Assets.xcassets */; };
 		69F958C31C2DAFB600592020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F958C11C2DAFB600592020 /* LaunchScreen.storyboard */; };
+		69F958CC1C2DB84D00592020 /* CalculatorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958CB1C2DB84D00592020 /* CalculatorVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6954F6FA1C2FF65100B1860F /* DoTheMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoTheMath.h; sourceTree = "<group>"; };
+		6954F6FB1C2FF65100B1860F /* DoTheMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoTheMath.m; sourceTree = "<group>"; };
 		69F958B01C2DAFB600592020 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F958B41C2DAFB600592020 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69F958B61C2DAFB600592020 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		69F958B71C2DAFB600592020 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		69F958B91C2DAFB600592020 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		69F958BA1C2DAFB600592020 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		69F958BD1C2DAFB600592020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69F958BF1C2DAFB600592020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69F958C21C2DAFB600592020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69F958C41C2DAFB600592020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69F958CA1C2DB84D00592020 /* CalculatorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorVC.h; sourceTree = SOURCE_ROOT; };
+		69F958CB1C2DB84D00592020 /* CalculatorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorVC.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +61,13 @@
 		69F958B21C2DAFB600592020 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				69F958BC1C2DAFB600592020 /* Main.storyboard */,
 				69F958B61C2DAFB600592020 /* AppDelegate.h */,
 				69F958B71C2DAFB600592020 /* AppDelegate.m */,
-				69F958B91C2DAFB600592020 /* ViewController.h */,
-				69F958BA1C2DAFB600592020 /* ViewController.m */,
-				69F958BC1C2DAFB600592020 /* Main.storyboard */,
+				69F958CA1C2DB84D00592020 /* CalculatorVC.h */,
+				69F958CB1C2DB84D00592020 /* CalculatorVC.m */,
+				6954F6FA1C2FF65100B1860F /* DoTheMath.h */,
+				6954F6FB1C2FF65100B1860F /* DoTheMath.m */,
 				69F958BF1C2DAFB600592020 /* Assets.xcassets */,
 				69F958C11C2DAFB600592020 /* LaunchScreen.storyboard */,
 				69F958C41C2DAFB600592020 /* Info.plist */,
@@ -150,7 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69F958BB1C2DAFB600592020 /* ViewController.m in Sources */,
+				6954F6FC1C2FF65100B1860F /* DoTheMath.m in Sources */,
+				69F958CC1C2DB84D00592020 /* CalculatorVC.m in Sources */,
 				69F958B81C2DAFB600592020 /* AppDelegate.m in Sources */,
 				69F958B51C2DAFB600592020 /* main.m in Sources */,
 			);
@@ -299,6 +305,7 @@
 				69F958C91C2DAFB600592020 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
