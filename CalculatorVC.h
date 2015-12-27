@@ -7,20 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DoTheMath.h"
 
-@interface CalculatorVC : UIViewController
+
+@interface CalculatorVC : UIViewController {
+    TheSign currentSign;
+}
+
 @property (weak, nonatomic) IBOutlet UILabel *output;
 @property (strong, nonatomic) id result;
 @property (strong, nonatomic) NSString *numberString;
 
-typedef NS_ENUM(NSInteger, TheSign) {
-    PLUS,
-    MINUS,
-    DIVIDE,
-    MULTIPLY,
-    PERCENT
-};
+@property (strong,nonatomic) NSNumber *firstNumber;
+@property (strong,nonatomic) NSNumber *secondNumber;
 
+@property (strong, nonatomic) DoTheMath *doTheMath;
 
 
 - (IBAction)zeroButton:(id)sender;
@@ -40,18 +41,13 @@ typedef NS_ENUM(NSInteger, TheSign) {
 - (IBAction)plusSign:(id)sender;
 - (IBAction)minusSign:(id)sender;
 - (IBAction)divisionSign:(id)sender;
+- (IBAction)multiplySign:(id)sender;
 
 
-
-
-
-
-
-
-
-
-
-
+- (IBAction)ACButton:(id)sender;
+- (IBAction)changeSignButton:(id)sender;
+- (IBAction)percentButton:(id)sender;
 
 
 @end
+
