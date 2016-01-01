@@ -26,6 +26,14 @@
     
     self.doTheMath = [[DoTheMath alloc]init];
     result = 0.0;
+    
+    self.numberFormatter = [[NSNumberFormatter alloc] init];
+    self.numberFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
+    self.numberFormatter.usesGroupingSeparator = YES;
+    self.numberFormatter.groupingSeparator = @" ";
+    self.numberFormatter.decimalSeparator = @".";
+    self.numberFormatter.maximumFractionDigits = 20;
+    self.numberFormatter.minimumFractionDigits = 0;
 }
 
 
@@ -141,7 +149,7 @@
                 self.secondNumber = [self convertedString:self.numberString];
                 result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
                 self.backupResult = [NSNumber numberWithDouble:result];
-                self.numberString = [NSString stringWithFormat:@"%f", result];
+                self.numberString = [self.numberFormatter stringFromNumber:self.backupResult];
                 self.output.text = self.numberString;
                 
                 self.firstNumber = self.backupResult;
@@ -180,7 +188,7 @@
                 self.secondNumber = [self convertedString:self.numberString];
                 result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
                 self.backupResult = [NSNumber numberWithDouble:result];
-                self.numberString = [NSString stringWithFormat:@"%f", result];
+                self.numberString = [self.numberFormatter stringFromNumber:self.backupResult];
                 self.output.text = self.numberString;
                 
                 self.firstNumber = self.backupResult;
@@ -221,7 +229,7 @@
                 self.secondNumber = [self convertedString:self.numberString];
                 result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
                 self.backupResult = [NSNumber numberWithDouble:result];
-                self.numberString = [NSString stringWithFormat:@"%f", result];
+                self.numberString = [self.numberFormatter stringFromNumber:self.backupResult];
                 self.output.text = self.numberString;
                 
                 self.firstNumber = self.backupResult;
@@ -258,7 +266,7 @@
                 self.secondNumber = [self convertedString:self.numberString];
                 result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
                 self.backupResult = [NSNumber numberWithDouble:result];
-                self.numberString = [NSString stringWithFormat:@"%f", result];
+                self.numberString = [self.numberFormatter stringFromNumber:self.backupResult];
                 self.output.text = self.numberString;
                 
                 self.firstNumber = self.backupResult;
@@ -318,9 +326,11 @@
         case CHANGE_BUTTON:
             self.secondNumber = [self convertedString:self.numberString];
             result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
-            self.numberString = [NSString stringWithFormat:@"%f", result];
-            self.output.text = self.numberString;
             self.backupResult = [NSNumber numberWithDouble:result];
+            self.numberString = [self.numberFormatter stringFromNumber:self.backupResult];
+
+            self.output.text = self.numberString;
+            
             self.backupSecondNumber = self.secondNumber;
             
             self.firstNumber = @0;

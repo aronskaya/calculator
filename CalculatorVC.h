@@ -32,18 +32,16 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 
 }
 
-
-
 @property (weak, nonatomic) IBOutlet UILabel *output;
 @property (strong, nonatomic) NSString *numberString;
 
 @property (strong,nonatomic) NSNumber *firstNumber;
 @property (strong,nonatomic) NSNumber *secondNumber;
 @property (strong, nonatomic) NSNumber *backupSecondNumber;
-
 @property (strong, nonatomic) NSNumber *backupResult;
 
 @property (strong, nonatomic) DoTheMath *doTheMath;
+@property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 
 
 - (IBAction)zeroButton:(id)sender;
