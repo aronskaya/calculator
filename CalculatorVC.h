@@ -9,17 +9,38 @@
 #import <UIKit/UIKit.h>
 #import "DoTheMath.h"
 
+typedef NS_ENUM(NSInteger, LastButtonPressed) {
+    EQUAL_BUTTON,
+    PLUS_BUTTON,
+    MINUS_BUTTON,
+    MULTIPLY_BUTTON,
+    DIVIDE_BUTTON,
+    PERCENT_BUTTON,
+    
+    CHANGE_BUTTON,
+    
+    FIGURE_BUTTON,
+    
+    OPEN_APP_BUTTON,
+};
+
 
 @interface CalculatorVC : UIViewController {
     TheSign currentSign;
+    LastButtonPressed lastButtonPressed;
+    double result;
+
 }
 
+
+
 @property (weak, nonatomic) IBOutlet UILabel *output;
-@property (strong, nonatomic) id result;
 @property (strong, nonatomic) NSString *numberString;
 
 @property (strong,nonatomic) NSNumber *firstNumber;
 @property (strong,nonatomic) NSNumber *secondNumber;
+
+@property (strong, nonatomic) NSNumber *backupResult;
 
 @property (strong, nonatomic) DoTheMath *doTheMath;
 
@@ -47,6 +68,11 @@
 - (IBAction)ACButton:(id)sender;
 - (IBAction)changeSignButton:(id)sender;
 - (IBAction)percentButton:(id)sender;
+
+//-(void)buttonPressed:
+
+//-(void)resultCalculationsForFirstNumber:(NSNumber *)firstNumber secondNumber:(NSNumber *)secondNumber;
+
 
 
 @end

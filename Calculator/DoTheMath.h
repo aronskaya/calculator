@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
 typedef NS_ENUM(NSInteger, TheSign) {
     PLUS,
     MINUS,
     DIVIDE,
     MULTIPLY,
-    PERCENT
+    PERCENT,
 };
 
 @interface DoTheMath : NSObject

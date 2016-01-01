@@ -11,28 +11,40 @@
 
 @implementation DoTheMath
 -(double)firstNumber:(NSNumber *)firstNumber sign:(TheSign)currentSign secondNumber:(NSNumber *)secondNumber {
+    double result;
     
     switch (currentSign) {
         case PLUS:
-             return (firstNumber.doubleValue + secondNumber.doubleValue);
+            result = firstNumber.doubleValue + secondNumber.doubleValue;
+             return result;
             break;
             
         case MINUS:
-             return (firstNumber.doubleValue - secondNumber.doubleValue);
+            result = firstNumber.doubleValue - secondNumber.doubleValue;
+             return result;
             break;
             
         case DIVIDE:
-             return (firstNumber.doubleValue / secondNumber.doubleValue);
+            result = firstNumber.doubleValue / secondNumber.doubleValue;
+             return result;
             break;
             
         case MULTIPLY:
-             return (firstNumber.doubleValue * secondNumber.doubleValue);
+            result = firstNumber.doubleValue * secondNumber.doubleValue;
+             return result;
             break;
             
         case PERCENT:
-             return (firstNumber.doubleValue + secondNumber.doubleValue);
-            break;
             
+            if ([secondNumber isEqualToNumber:@0]) {
+                result = firstNumber.doubleValue / 100.00;
+                return result;
+                break;
+            }
+            result = firstNumber.doubleValue / 100 * secondNumber.doubleValue;
+             return result;
+            break;
+
     }
 
 }
