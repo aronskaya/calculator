@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 
 @property (strong,nonatomic) NSNumber *firstNumber;
 @property (strong,nonatomic) NSNumber *secondNumber;
+@property (strong, nonatomic) NSNumber *backupSecondNumber;
 
 @property (strong, nonatomic) NSNumber *backupResult;
 
@@ -69,7 +70,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 - (IBAction)changeSignButton:(id)sender;
 - (IBAction)percentButton:(id)sender;
 
-//-(void)buttonPressed:
+-(void)freshStartWithSign:(TheSign)sign andButton:(LastButtonPressed)button;
 
 //-(void)resultCalculationsForFirstNumber:(NSNumber *)firstNumber secondNumber:(NSNumber *)secondNumber;
 

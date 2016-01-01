@@ -26,8 +26,8 @@
     
     self.doTheMath = [[DoTheMath alloc]init];
     result = 0.0;
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -44,7 +44,6 @@
 }
 */
 
-//-(void)doTheMaths
 
 -(NSString *)appendingFigure:(NSString *)figureString {
     self.numberString = [self.numberString stringByAppendingString:figureString];
@@ -54,6 +53,13 @@
 
 -(NSNumber *)convertedString:(NSString *)numberString {
     return [NSNumber numberWithDouble:[self.numberString doubleValue]];
+}
+
+-(void)freshStartWithSign:(TheSign)sign andButton:(LastButtonPressed)button {
+    self.firstNumber = self.backupResult;
+    self.numberString = @"";
+    currentSign = sign;
+    lastButtonPressed = button;
 }
 
 - (IBAction)zeroButton:(id)sender {
@@ -125,14 +131,20 @@
     switch (lastButtonPressed) {
         case FIGURE_BUTTON:
         case CHANGE_BUTTON:
-            if ([self.secondNumber isEqualToNumber:[NSNumber numberWithDouble:0.0]]) {
+            //standard calculations, e.g. 10 + 3 = ...
+            if ([self.firstNumber isEqual: @0]) {
                 self.firstNumber = [self convertedString:self.numberString];
                 self.numberString = @"";
             }
+            //continuous calculations, e.g. 10 + 3 + 5...
             else {
+                self.secondNumber = [self convertedString:self.numberString];
                 result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
+                self.backupResult = [NSNumber numberWithDouble:result];
+                self.numberString = [NSString stringWithFormat:@"%f", result];
                 self.output.text = self.numberString;
-                self.firstNumber = [NSNumber numberWithDouble:result];
+                
+                self.firstNumber = self.backupResult;
                 self.numberString = @"";
             }
             currentSign = PLUS;
@@ -149,10 +161,7 @@
             break;
         case EQUAL_BUTTON:
         case OPEN_APP_BUTTON:
-            self.firstNumber = self.backupResult;
-            self.numberString = @"";
-            currentSign = PLUS;
-            lastButtonPressed = PLUS_BUTTON;
+            [self freshStartWithSign:PLUS andButton:PLUS_BUTTON];
     }
     
 }
@@ -161,19 +170,24 @@
     switch (lastButtonPressed) {
         case FIGURE_BUTTON:
         case CHANGE_BUTTON:
-            if ([self.secondNumber isEqual: @0]) {
+                        //standard calculations, e.g. 10 + 3 = ...
+            if ([self.firstNumber isEqual: @0]) {
                 self.firstNumber = [self convertedString:self.numberString];
                 self.numberString = @"";
             }
+                        //continuous calculations, e.g. 10 + 3 + 5...
             else {
+                self.secondNumber = [self convertedString:self.numberString];
                 result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
+                self.backupResult = [NSNumber numberWithDouble:result];
+                self.numberString = [NSString stringWithFormat:@"%f", result];
                 self.output.text = self.numberString;
-                self.firstNumber = [NSNumber numberWithDouble:result];
+                
+                self.firstNumber = self.backupResult;
                 self.numberString = @"";
             }
             currentSign = MINUS;
             lastButtonPressed = MINUS_BUTTON;
-            
             
         case PLUS_BUTTON:
         case MULTIPLY_BUTTON:
@@ -182,14 +196,13 @@
             currentSign = MINUS;
             lastButtonPressed = MINUS_BUTTON;
             break;
+            
         case MINUS_BUTTON:
             break;
+            
         case EQUAL_BUTTON:
         case OPEN_APP_BUTTON:
-            self.firstNumber = self.backupResult;
-            self.numberString = @"";
-            currentSign = MINUS;
-            lastButtonPressed = MINUS_BUTTON;
+            [self freshStartWithSign:MINUS andButton:MINUS_BUTTON];
     }
 }
 
@@ -198,11 +211,24 @@
     switch (lastButtonPressed) {
         case FIGURE_BUTTON:
         case CHANGE_BUTTON:
-            self.firstNumber = [self convertedString:self.numberString];
-            self.numberString = @"";
+            //standard calculations, e.g. 10 + 3 = ...
+            if ([self.firstNumber isEqual: @0]) {
+                self.firstNumber = [self convertedString:self.numberString];
+                self.numberString = @"";
+            }
+            //continuous calculations, e.g. 10 + 3 + 5...
+            else {
+                self.secondNumber = [self convertedString:self.numberString];
+                result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
+                self.backupResult = [NSNumber numberWithDouble:result];
+                self.numberString = [NSString stringWithFormat:@"%f", result];
+                self.output.text = self.numberString;
+                
+                self.firstNumber = self.backupResult;
+                self.numberString = @"";
+            }
             currentSign = DIVIDE;
             lastButtonPressed = DIVIDE_BUTTON;
-            break;
         case PLUS_BUTTON:
         case MULTIPLY_BUTTON:
         case MINUS_BUTTON:
@@ -214,10 +240,7 @@
             break;
         case EQUAL_BUTTON:
         case OPEN_APP_BUTTON:
-            self.firstNumber = self.backupResult;
-            self.numberString = @"";
-            currentSign = DIVIDE;
-            lastButtonPressed = DIVIDE_BUTTON;
+            [self freshStartWithSign:DIVIDE andButton:DIVIDE_BUTTON];
     }
 }
 
@@ -225,8 +248,22 @@
     switch (lastButtonPressed) {
         case FIGURE_BUTTON:
         case CHANGE_BUTTON:
-            self.firstNumber = [self convertedString:self.numberString];
-            self.numberString = @"";
+            //standard calculations, e.g. 10 + 3 = ...
+            if ([self.firstNumber isEqual: @0]) {
+                self.firstNumber = [self convertedString:self.numberString];
+                self.numberString = @"";
+            }
+            //continuous calculations, e.g. 10 + 3 + 5...
+            else {
+                self.secondNumber = [self convertedString:self.numberString];
+                result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
+                self.backupResult = [NSNumber numberWithDouble:result];
+                self.numberString = [NSString stringWithFormat:@"%f", result];
+                self.output.text = self.numberString;
+                
+                self.firstNumber = self.backupResult;
+                self.numberString = @"";
+            }
             currentSign = MULTIPLY;
             lastButtonPressed = MULTIPLY_BUTTON;
             break;
@@ -241,10 +278,7 @@
             break;
         case EQUAL_BUTTON:
         case OPEN_APP_BUTTON:
-            self.firstNumber = self.backupResult;
-            self.numberString = @"";
-            currentSign = MULTIPLY;
-            lastButtonPressed = MULTIPLY_BUTTON;
+            [self freshStartWithSign:MULTIPLY andButton:MULTIPLY_BUTTON];
     }
     
 }
@@ -282,11 +316,12 @@
             
         case FIGURE_BUTTON:
         case CHANGE_BUTTON:
-            self.secondNumber = [NSNumber numberWithDouble:[self.numberString doubleValue]];
+            self.secondNumber = [self convertedString:self.numberString];
             result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
             self.numberString = [NSString stringWithFormat:@"%f", result];
             self.output.text = self.numberString;
             self.backupResult = [NSNumber numberWithDouble:result];
+            self.backupSecondNumber = self.secondNumber;
             
             self.firstNumber = @0;
             self.secondNumber = @0;
@@ -294,7 +329,8 @@
             break;
             
         case EQUAL_BUTTON:
-            self.firstNumber = [NSNumber numberWithDouble:result];
+            self.secondNumber = self.backupSecondNumber;
+            self.firstNumber = self.backupResult;
             result = [self.doTheMath firstNumber:self.firstNumber sign:currentSign secondNumber:self.secondNumber];
             self.output.text = [NSString stringWithFormat:@"%f", result];
             self.backupResult = [NSNumber numberWithDouble:result];
