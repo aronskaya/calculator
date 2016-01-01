@@ -56,6 +56,7 @@
 -(NSString *)appendingFigure:(NSString *)figureString {
     self.numberString = [self.numberString stringByAppendingString:figureString];
     self.output.text = self.numberString;
+    lastButtonPressed = FIGURE_BUTTON;
     return self.numberString;
 }
 
@@ -79,47 +80,38 @@
 
 - (IBAction)oneButton:(id)sender {
     [self appendingFigure:@"1"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)twoButton:(id)sender {
     [self appendingFigure:@"2"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)threeButton:(id)sender {
     [self appendingFigure:@"3"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)fourButton:(id)sender {
     [self appendingFigure:@"4"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)fiveButton:(id)sender {
     [self appendingFigure:@"5"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)sixButton:(id)sender {
     [self appendingFigure:@"6"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)sevenButton:(id)sender {
     [self appendingFigure:@"7"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)eightButton:(id)sender {
     [self appendingFigure:@"8"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)nineButton:(id)sender {
     [self appendingFigure:@"9"];
-    lastButtonPressed = FIGURE_BUTTON;
 }
 
 - (IBAction)commaButton:(id)sender {
