@@ -42,6 +42,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 
 @property (strong, nonatomic) DoTheMath *doTheMath;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
+@property (strong, nonatomic) NSNumberFormatter *bigNumberFormatter;
 
 
 - (IBAction)zeroButton:(id)sender;
@@ -68,7 +69,13 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 - (IBAction)changeSignButton:(id)sender;
 - (IBAction)percentButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonACOutlet;
+
+
+
 -(void)freshStartWithSign:(TheSign)sign andButton:(LastButtonPressed)button;
+
+-(NSNumberFormatter *)numberFormatterForCurrentBackupResult;
 
 //-(void)resultCalculationsForFirstNumber:(NSNumber *)firstNumber secondNumber:(NSNumber *)secondNumber;
 

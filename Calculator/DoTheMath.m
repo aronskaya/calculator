@@ -35,14 +35,13 @@
             break;
             
         case PERCENT:
-            
-            if ([secondNumber isEqualToNumber:@0]) {
-                result = firstNumber.doubleValue / 100.00;
+            if ([secondNumber isEqual:@0]) {
+                result = (firstNumber.doubleValue / 100);
                 return result;
                 break;
-            }
-            result = firstNumber.doubleValue / 100 * secondNumber.doubleValue;
-             return result;
+            } else
+                result = (firstNumber.doubleValue / 100 * secondNumber.doubleValue);
+                return result;
             break;
 
     }
