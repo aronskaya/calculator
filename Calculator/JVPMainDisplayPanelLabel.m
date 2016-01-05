@@ -6,9 +6,9 @@
 //  Copyright © 2016 Julia Vashchenko. All rights reserved.
 //
 
-#import "MainDisplayPanelLabel.h"
+#import "JVPMainDisplayPanelLabel.h"
 
-@implementation MainDisplayPanelLabel
+@implementation JVPMainDisplayPanelLabel
 
 /*
 // Only override drawRect: if you perform custom drawing.

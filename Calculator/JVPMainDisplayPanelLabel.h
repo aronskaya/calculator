@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainDisplayPanelLabel : UILabel
+@interface JVPMainDisplayPanelLabel : UILabel
 
 
 

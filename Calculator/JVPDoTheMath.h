@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, TheSign) {
     NONE,
 };
 
-@interface DoTheMath : NSObject
+@interface JVPDoTheMath : NSObject
 
 -(NSDecimalNumber *)firstNumber:(NSDecimalNumber *)firstNumber sign:(TheSign)currentSign secondNumber:(NSDecimalNumber *)secondNumber;
 

@@ -6,13 +6,13 @@
 //  Copyright © 2015 Julia Vashchenko. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "JVPAppDelegate.h"
 
-@interface AppDelegate ()
+@interface JVPAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation JVPAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

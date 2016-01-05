@@ -7,7 +7,7 @@
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CalculatorVC" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="JVPCalculatorVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0123456789012345.5" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKo-HT-yYm" customClass="MainDisplayPanelLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0123456789012345.5" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKo-HT-yYm" customClass="JVPMainDisplayPanelLabel">
                                 <rect key="frame" x="0.0" y="20" width="600" height="200"/>
                                 <color key="backgroundColor" red="0.94518601115959588" green="0.94518601115959588" blue="0.94518601115959588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

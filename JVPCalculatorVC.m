@@ -6,15 +6,15 @@
 //  Copyright © 2015 Julia Vashchenko. All rights reserved.
 //
 
-#import "CalculatorVC.h"
+#import "JVPCalculatorVC.h"
 
-@interface CalculatorVC ()
+@interface JVPCalculatorVC ()
 
 @end
 
-@implementation CalculatorVC
+@implementation JVPCalculatorVC
 
-@synthesize numberFormatter;
+@synthesize regularNumberFormatter;
 @synthesize smallBigNumberFormatter;
 @synthesize numberString;
 @synthesize result;
@@ -30,7 +30,7 @@
     
     // Setting initial values
     
-    self.doTheMath = [[DoTheMath alloc]init];
+    self.doTheMath = [[JVPDoTheMath alloc]init];
     output.text = @"0";
     numberString = @"";
     zero = [NSDecimalNumber zero];
@@ -47,13 +47,13 @@
     
     //configuring an NSNumberFormatter for output of numbers less than 100 000 000
     
-    numberFormatter = [[NSNumberFormatter alloc] init];
-    numberFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
-    numberFormatter.usesGroupingSeparator = YES;
-    numberFormatter.groupingSeparator = @" ";
-    numberFormatter.decimalSeparator = @".";
-    numberFormatter.maximumFractionDigits = 30;
-    numberFormatter.minimumFractionDigits = 0;
+    regularNumberFormatter = [[NSNumberFormatter alloc] init];
+    regularNumberFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
+    regularNumberFormatter.usesGroupingSeparator = YES;
+    regularNumberFormatter.groupingSeparator = @" ";
+    regularNumberFormatter.decimalSeparator = @".";
+    regularNumberFormatter.maximumFractionDigits = 15;
+    regularNumberFormatter.minimumFractionDigits = 0;
     
     //configuring an NSNumberFormatter for output of numbers more than 100 000 000
     smallBigNumberFormatter = [[NSNumberFormatter alloc]init];
@@ -61,7 +61,7 @@
     smallBigNumberFormatter.usesGroupingSeparator = YES;
     smallBigNumberFormatter.groupingSeparator = @" ";
     smallBigNumberFormatter.decimalSeparator = @".";
-    smallBigNumberFormatter.maximumFractionDigits = 30;
+    smallBigNumberFormatter.maximumFractionDigits = 15;
     smallBigNumberFormatter.minimumFractionDigits = 0;
     smallBigNumberFormatter.exponentSymbol = @"e";
     
@@ -69,7 +69,7 @@
     output.numberOfLines = 1;
     output.lineBreakMode = NSLineBreakByClipping;
     output.adjustsFontSizeToFitWidth = YES;
-    output.minimumScaleFactor = 8.0/[UIFont labelFontSize];
+    output.minimumScaleFactor = 7.0/[UIFont labelFontSize];
 }
 
 -(NSString *)stringForCurrentBackupResult {
@@ -80,7 +80,7 @@
     
     //specifying conditions when regular or scientific format of output is used
     NSNumberFormatter *selectedNumberFormatter;
-    NSDecimalNumber *smallNumber = [NSDecimalNumber decimalNumberWithString:@"0.00000000001"];
+    NSDecimalNumber *smallNumber = [NSDecimalNumber decimalNumberWithString:@"0.0000000001"];
     NSDecimalNumber *bigNumber = [NSDecimalNumber decimalNumberWithString:@"999999999999"];
     
     //getting absolute value of a number
@@ -95,7 +95,7 @@
         selectedNumberFormatter = smallBigNumberFormatter;
     }
     else {
-        selectedNumberFormatter = numberFormatter;
+        selectedNumberFormatter = regularNumberFormatter;
     }
     
     //generating string

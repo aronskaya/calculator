@@ -8,33 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		6938D2791C3A8BED00AD52F3 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6938D2781C3A8BEC00AD52F3 /* CALayer+XibConfiguration.m */; };
-		6938D27C1C3A983D00AD52F3 /* MainDisplayPanelLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6938D27B1C3A983D00AD52F3 /* MainDisplayPanelLabel.m */; };
-		6954F6FC1C2FF65100B1860F /* DoTheMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6954F6FB1C2FF65100B1860F /* DoTheMath.m */; };
+		6938D27C1C3A983D00AD52F3 /* JVPMainDisplayPanelLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6938D27B1C3A983D00AD52F3 /* JVPMainDisplayPanelLabel.m */; };
+		6954F6FC1C2FF65100B1860F /* JVPDoTheMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6954F6FB1C2FF65100B1860F /* JVPDoTheMath.m */; };
 		69F958B51C2DAFB600592020 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958B41C2DAFB600592020 /* main.m */; };
-		69F958B81C2DAFB600592020 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958B71C2DAFB600592020 /* AppDelegate.m */; };
+		69F958B81C2DAFB600592020 /* JVPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958B71C2DAFB600592020 /* JVPAppDelegate.m */; };
 		69F958BE1C2DAFB600592020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F958BC1C2DAFB600592020 /* Main.storyboard */; };
 		69F958C01C2DAFB600592020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69F958BF1C2DAFB600592020 /* Assets.xcassets */; };
 		69F958C31C2DAFB600592020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F958C11C2DAFB600592020 /* LaunchScreen.storyboard */; };
-		69F958CC1C2DB84D00592020 /* CalculatorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958CB1C2DB84D00592020 /* CalculatorVC.m */; };
+		69F958CC1C2DB84D00592020 /* JVPCalculatorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F958CB1C2DB84D00592020 /* JVPCalculatorVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6938D2771C3A8BEC00AD52F3 /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
 		6938D2781C3A8BEC00AD52F3 /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
-		6938D27A1C3A983D00AD52F3 /* MainDisplayPanelLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDisplayPanelLabel.h; sourceTree = "<group>"; };
-		6938D27B1C3A983D00AD52F3 /* MainDisplayPanelLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainDisplayPanelLabel.m; sourceTree = "<group>"; };
-		6954F6FA1C2FF65100B1860F /* DoTheMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoTheMath.h; sourceTree = "<group>"; };
-		6954F6FB1C2FF65100B1860F /* DoTheMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoTheMath.m; sourceTree = "<group>"; };
+		6938D27A1C3A983D00AD52F3 /* JVPMainDisplayPanelLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVPMainDisplayPanelLabel.h; sourceTree = "<group>"; };
+		6938D27B1C3A983D00AD52F3 /* JVPMainDisplayPanelLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVPMainDisplayPanelLabel.m; sourceTree = "<group>"; };
+		6954F6FA1C2FF65100B1860F /* JVPDoTheMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVPDoTheMath.h; sourceTree = "<group>"; };
+		6954F6FB1C2FF65100B1860F /* JVPDoTheMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVPDoTheMath.m; sourceTree = "<group>"; };
 		69F958B01C2DAFB600592020 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F958B41C2DAFB600592020 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		69F958B61C2DAFB600592020 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		69F958B71C2DAFB600592020 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		69F958B61C2DAFB600592020 /* JVPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVPAppDelegate.h; sourceTree = "<group>"; };
+		69F958B71C2DAFB600592020 /* JVPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVPAppDelegate.m; sourceTree = "<group>"; };
 		69F958BD1C2DAFB600592020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69F958BF1C2DAFB600592020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69F958C21C2DAFB600592020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69F958C41C2DAFB600592020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69F958CA1C2DB84D00592020 /* CalculatorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorVC.h; sourceTree = SOURCE_ROOT; };
-		69F958CB1C2DB84D00592020 /* CalculatorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorVC.m; sourceTree = SOURCE_ROOT; };
+		69F958CA1C2DB84D00592020 /* JVPCalculatorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVPCalculatorVC.h; sourceTree = SOURCE_ROOT; };
+		69F958CB1C2DB84D00592020 /* JVPCalculatorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVPCalculatorVC.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +53,8 @@
 			children = (
 				6938D2771C3A8BEC00AD52F3 /* CALayer+XibConfiguration.h */,
 				6938D2781C3A8BEC00AD52F3 /* CALayer+XibConfiguration.m */,
-				6938D27A1C3A983D00AD52F3 /* MainDisplayPanelLabel.h */,
-				6938D27B1C3A983D00AD52F3 /* MainDisplayPanelLabel.m */,
+				6938D27A1C3A983D00AD52F3 /* JVPMainDisplayPanelLabel.h */,
+				6938D27B1C3A983D00AD52F3 /* JVPMainDisplayPanelLabel.m */,
 			);
 			name = DisplayHelperClasses;
 			sourceTree = "<group>";
@@ -79,12 +79,12 @@
 			isa = PBXGroup;
 			children = (
 				69F958BC1C2DAFB600592020 /* Main.storyboard */,
-				69F958B61C2DAFB600592020 /* AppDelegate.h */,
-				69F958B71C2DAFB600592020 /* AppDelegate.m */,
-				69F958CA1C2DB84D00592020 /* CalculatorVC.h */,
-				69F958CB1C2DB84D00592020 /* CalculatorVC.m */,
-				6954F6FA1C2FF65100B1860F /* DoTheMath.h */,
-				6954F6FB1C2FF65100B1860F /* DoTheMath.m */,
+				69F958B61C2DAFB600592020 /* JVPAppDelegate.h */,
+				69F958B71C2DAFB600592020 /* JVPAppDelegate.m */,
+				69F958CA1C2DB84D00592020 /* JVPCalculatorVC.h */,
+				69F958CB1C2DB84D00592020 /* JVPCalculatorVC.m */,
+				6954F6FA1C2FF65100B1860F /* JVPDoTheMath.h */,
+				6954F6FB1C2FF65100B1860F /* JVPDoTheMath.m */,
 				6938D27D1C3A985500AD52F3 /* DisplayHelperClasses */,
 				69F958BF1C2DAFB600592020 /* Assets.xcassets */,
 				69F958C11C2DAFB600592020 /* LaunchScreen.storyboard */,
@@ -173,11 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6954F6FC1C2FF65100B1860F /* DoTheMath.m in Sources */,
-				69F958CC1C2DB84D00592020 /* CalculatorVC.m in Sources */,
+				6954F6FC1C2FF65100B1860F /* JVPDoTheMath.m in Sources */,
+				69F958CC1C2DB84D00592020 /* JVPCalculatorVC.m in Sources */,
 				6938D2791C3A8BED00AD52F3 /* CALayer+XibConfiguration.m in Sources */,
-				6938D27C1C3A983D00AD52F3 /* MainDisplayPanelLabel.m in Sources */,
-				69F958B81C2DAFB600592020 /* AppDelegate.m in Sources */,
+				6938D27C1C3A983D00AD52F3 /* JVPMainDisplayPanelLabel.m in Sources */,
+				69F958B81C2DAFB600592020 /* JVPAppDelegate.m in Sources */,
 				69F958B51C2DAFB600592020 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

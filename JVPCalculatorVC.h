@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DoTheMath.h"
+#import "JVPDoTheMath.h"
 
 typedef NS_ENUM(NSInteger, LastButtonPressed) {
     OPEN_APP_BUTTON,
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
     FIGURE_BUTTON,
 };
 
-@interface CalculatorVC : UIViewController {
+@interface JVPCalculatorVC : UIViewController {
     TheSign currentSign;
     LastButtonPressed lastButtonPressed;
 }
@@ -35,8 +35,8 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 @property (strong, nonatomic) NSDecimalNumber *backupResult;
 @property (strong, nonatomic) NSDecimalNumber *result;
 
-@property (strong, nonatomic) DoTheMath *doTheMath;
-@property (strong, nonatomic) NSNumberFormatter *numberFormatter;
+@property (strong, nonatomic) JVPDoTheMath *doTheMath;
+@property (strong, nonatomic) NSNumberFormatter *regularNumberFormatter;
 @property (strong, nonatomic) NSNumberFormatter *smallBigNumberFormatter;
 
 @property (strong, nonatomic) NSDecimalNumber *zero;

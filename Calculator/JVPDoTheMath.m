@@ -6,10 +6,10 @@
 //  Copyright © 2015 Julia Vashchenko. All rights reserved.
 //
 
-#import "DoTheMath.h"
-#import "CalculatorVC.h"
+#import "JVPDoTheMath.h"
+#import "JVPCalculatorVC.h"
 
-@implementation DoTheMath
+@implementation JVPDoTheMath
 -(NSDecimalNumber *)firstNumber:(NSDecimalNumber *)firstNumber sign:(TheSign)currentSign secondNumber:(NSDecimalNumber *)secondNumber {
     
     NSDecimalNumber *hundred = [NSDecimalNumber decimalNumberWithString:@"100"];
