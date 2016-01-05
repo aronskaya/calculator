@@ -15,23 +15,23 @@
     NSDecimalNumber *hundred = [NSDecimalNumber decimalNumberWithString:@"100"];
     
     switch (currentSign) {
-        case PLUS:
+        case kJVPPlusSign:
             return [firstNumber decimalNumberByAdding:secondNumber];
             break;
             
-        case MINUS:
+        case kJVPMinusSign:
             return [firstNumber decimalNumberBySubtracting:secondNumber];
             break;
             
-        case DIVIDE:
+        case kJVPDivideSign:
             return [firstNumber decimalNumberByDividingBy:secondNumber];
             break;
             
-        case MULTIPLY:
+        case kJVPMultiplySign:
             return [firstNumber decimalNumberByMultiplyingBy:secondNumber];
             break;
             
-        case PERCENT:
+        case kJVPPercentSign:
             if ([secondNumber compare:[NSDecimalNumber zero]] == NSOrderedSame) {
                 return [firstNumber decimalNumberByDividingBy:hundred];
             } else {
@@ -39,7 +39,7 @@
             }
             break;
             
-        case NONE:
+        case kJVPNoneSign:
             return secondNumber;
             break;
     }

@@ -10,15 +10,15 @@
 #import "JVPDoTheMath.h"
 
 typedef NS_ENUM(NSInteger, LastButtonPressed) {
-    OPEN_APP_BUTTON,
-    EQUAL_BUTTON,
-    PLUS_BUTTON,
-    MINUS_BUTTON,
-    MULTIPLY_BUTTON,
-    DIVIDE_BUTTON,
-    PERCENT_BUTTON,
-    CHANGE_BUTTON,
-    FIGURE_BUTTON,
+    kJVPOpenAppButton,
+    kJVPEqualButton,
+    kJVPPlusButton,
+    kJVPMinusButton,
+    kJVPMultiplyButton,
+    kJVPDivideButton,
+    kJVPPercentButton,
+    kJVPChangeButton,
+    kJVPFigureButton,
 };
 
 @interface JVPCalculatorVC : UIViewController {

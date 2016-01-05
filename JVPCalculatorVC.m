@@ -39,8 +39,8 @@
     backupResult = zero;
     backupSecondNumber = zero;
     result = zero;
-    lastButtonPressed = OPEN_APP_BUTTON;
-    currentSign = NONE;
+    lastButtonPressed = kJVPOpenAppButton;
+    currentSign = kJVPNoneSign;
     
     NSDecimalNumberHandler *handler = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain scale:11 raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
     [NSDecimalNumber setDefaultBehavior:handler];
@@ -127,7 +127,7 @@
         numberString = [numberString stringByAppendingString:figureString];
     }
     output.text = numberString;
-    lastButtonPressed = FIGURE_BUTTON;
+    lastButtonPressed = kJVPFigureButton;
     return numberString;
 }
 
@@ -146,7 +146,7 @@
     if (![numberString isEqualToString:@"0"]) {
         [self appendingFigure:@"0"];
         }
-    lastButtonPressed = FIGURE_BUTTON;
+    lastButtonPressed = kJVPFigureButton;
 }
 
 - (IBAction)oneButton:(id)sender {
@@ -187,7 +187,7 @@
 
 - (IBAction)commaButton:(id)sender {
     
-    if (([numberString isEqualToString:@""]) || ([numberString isEqualToString:@"0"]) || (lastButtonPressed == PLUS_BUTTON) || (lastButtonPressed == MINUS_BUTTON) || (lastButtonPressed == DIVIDE_BUTTON) || (lastButtonPressed == MULTIPLY_BUTTON)) {
+    if (([numberString isEqualToString:@""]) || ([numberString isEqualToString:@"0"]) || (lastButtonPressed == kJVPPlusButton) || (lastButtonPressed == kJVPMinusButton) || (lastButtonPressed == kJVPDivideButton) || (lastButtonPressed == kJVPMultiplyButton)) {
         numberString = @"0.";
         output.text = numberString;
     }
@@ -200,8 +200,8 @@
 
 - (IBAction)plusSign:(id)sender {
     switch (lastButtonPressed) {
-        case FIGURE_BUTTON:
-        case CHANGE_BUTTON:
+        case kJVPFigureButton:
+        case kJVPChangeButton:
             
             //standard calculations, e.g. 10 + 3 = ...
             if ([firstNumber compare:zero] == NSOrderedSame) {
@@ -220,29 +220,29 @@
                 firstNumber = backupResult;
                 numberString = @"";
             }
-            currentSign = PLUS;
-            lastButtonPressed = PLUS_BUTTON;
+            currentSign = kJVPPlusSign;
+            lastButtonPressed = kJVPPlusButton;
             
-        case MINUS_BUTTON:
-        case MULTIPLY_BUTTON:
-        case DIVIDE_BUTTON:
-        case PERCENT_BUTTON:
-            currentSign = PLUS;
-            lastButtonPressed = PLUS_BUTTON;
+        case kJVPMinusButton:
+        case kJVPMultiplyButton:
+        case kJVPDivideButton:
+        case kJVPPercentButton:
+            currentSign = kJVPPlusSign;
+            lastButtonPressed = kJVPPlusButton;
             break;
-        case PLUS_BUTTON:
+        case kJVPPlusButton:
             break;
-        case EQUAL_BUTTON:
-        case OPEN_APP_BUTTON:
-            [self freshStartWithSign:PLUS andButton:PLUS_BUTTON];
+        case kJVPEqualButton:
+        case kJVPOpenAppButton:
+            [self freshStartWithSign:kJVPPlusSign andButton:kJVPPlusButton];
     }
     
 }
 
 - (IBAction)minusSign:(id)sender {
     switch (lastButtonPressed) {
-        case FIGURE_BUTTON:
-        case CHANGE_BUTTON:
+        case kJVPFigureButton:
+        case kJVPChangeButton:
                         //standard calculations, e.g. 10 + 3 = ...
             if ([firstNumber compare:zero] == NSOrderedSame) {
                 firstNumber = [self numberFromString:numberString];
@@ -259,30 +259,30 @@
                 firstNumber = backupResult;
                 numberString = @"";
             }
-            currentSign = MINUS;
-            lastButtonPressed = MINUS_BUTTON;
+            currentSign = kJVPMinusSign;
+            lastButtonPressed = kJVPMinusButton;
             
-        case PLUS_BUTTON:
-        case MULTIPLY_BUTTON:
-        case DIVIDE_BUTTON:
-        case PERCENT_BUTTON:
-            currentSign = MINUS;
-            lastButtonPressed = MINUS_BUTTON;
+        case kJVPPlusButton:
+        case kJVPMultiplyButton:
+        case kJVPDivideButton:
+        case kJVPPercentButton:
+            currentSign = kJVPMinusSign;
+            lastButtonPressed = kJVPMinusButton;
             break;
             
-        case MINUS_BUTTON:
+        case kJVPMinusButton:
             break;
             
-        case EQUAL_BUTTON:
-        case OPEN_APP_BUTTON:
-            [self freshStartWithSign:MINUS andButton:MINUS_BUTTON];
+        case kJVPEqualButton:
+        case kJVPOpenAppButton:
+            [self freshStartWithSign:kJVPMinusSign andButton:kJVPMinusButton];
     }
 }
 
 - (IBAction)divisionSign:(id)sender {
     switch (lastButtonPressed) {
-        case FIGURE_BUTTON:
-        case CHANGE_BUTTON:
+        case kJVPFigureButton:
+        case kJVPChangeButton:
             //standard calculations, e.g. 10 + 3 = ...
             if ([firstNumber compare:zero] == NSOrderedSame) {
                 firstNumber = [self numberFromString:numberString];
@@ -299,27 +299,27 @@
                 firstNumber = backupResult;
                 numberString = @"";
             }
-            currentSign = DIVIDE;
-            lastButtonPressed = DIVIDE_BUTTON;
-        case PLUS_BUTTON:
-        case MULTIPLY_BUTTON:
-        case MINUS_BUTTON:
-        case PERCENT_BUTTON:
-            currentSign = DIVIDE;
-            lastButtonPressed = DIVIDE_BUTTON;
+            currentSign = kJVPDivideSign;
+            lastButtonPressed = kJVPDivideButton;
+        case kJVPPlusButton:
+        case kJVPMultiplyButton:
+        case kJVPMinusButton:
+        case kJVPPercentButton:
+            currentSign = kJVPDivideSign;
+            lastButtonPressed = kJVPDivideButton;
             break;
-        case DIVIDE_BUTTON:
+        case kJVPDivideButton:
             break;
-        case EQUAL_BUTTON:
-        case OPEN_APP_BUTTON:
-            [self freshStartWithSign:DIVIDE andButton:DIVIDE_BUTTON];
+        case kJVPEqualButton:
+        case kJVPOpenAppButton:
+            [self freshStartWithSign:kJVPDivideSign andButton:kJVPDivideButton];
     }
 }
 
 - (IBAction)multiplySign:(id)sender {
     switch (lastButtonPressed) {
-        case FIGURE_BUTTON:
-        case CHANGE_BUTTON:
+        case kJVPFigureButton:
+        case kJVPChangeButton:
             //standard calculations, e.g. 10 + 3 = ...
             if ([firstNumber compare:zero] == NSOrderedSame) {
                 firstNumber = [self numberFromString:numberString];
@@ -336,21 +336,21 @@
                 firstNumber = backupResult;
                 numberString = @"";
             }
-            currentSign = MULTIPLY;
-            lastButtonPressed = MULTIPLY_BUTTON;
+            currentSign = kJVPMultiplySign;
+            lastButtonPressed = kJVPMultiplyButton;
             break;
-        case PLUS_BUTTON:
-        case MINUS_BUTTON:
-        case DIVIDE_BUTTON:
-        case PERCENT_BUTTON:
-            currentSign = MULTIPLY;
-            lastButtonPressed = MULTIPLY_BUTTON;
+        case kJVPPlusButton:
+        case kJVPMinusButton:
+        case kJVPDivideButton:
+        case kJVPPercentButton:
+            currentSign = kJVPMultiplySign;
+            lastButtonPressed = kJVPMultiplyButton;
             break;
-        case MULTIPLY_BUTTON:
+        case kJVPMultiplyButton:
             break;
-        case EQUAL_BUTTON:
-        case OPEN_APP_BUTTON:
-            [self freshStartWithSign:MULTIPLY andButton:MULTIPLY_BUTTON];
+        case kJVPEqualButton:
+        case kJVPOpenAppButton:
+            [self freshStartWithSign:kJVPMultiplySign andButton:kJVPMultiplyButton];
     }
     
 }
@@ -362,8 +362,8 @@
     output.text = @"0";
     backupResult = zero;
     result = zero;
-    currentSign = NONE;
-    lastButtonPressed = OPEN_APP_BUTTON;
+    currentSign = kJVPNoneSign;
+    lastButtonPressed = kJVPOpenAppButton;
     
 }
 
@@ -375,18 +375,18 @@
         numberString = [numberString stringByReplacingOccurrencesOfString:@"-" withString:@""];
     }
     output.text = numberString;
-    lastButtonPressed = CHANGE_BUTTON;
+    lastButtonPressed = kJVPChangeButton;
 }
 
 #pragma mark - Current Working Point
 
 - (IBAction)percentButton:(id)sender {
-    currentSign = PERCENT;
+    currentSign = kJVPPercentSign;
     
     switch (lastButtonPressed) {
-        case FIGURE_BUTTON:
-        case CHANGE_BUTTON:
-        case PERCENT_BUTTON:
+        case kJVPFigureButton:
+        case kJVPChangeButton:
+        case kJVPPercentButton:
             
             if ([firstNumber compare:zero] == NSOrderedSame) {
                 firstNumber = [self numberFromString:numberString];
@@ -408,14 +408,14 @@
                 firstNumber = backupResult;
                 numberString = @"";
             }
-        case PLUS_BUTTON:
-        case MINUS_BUTTON:
-        case DIVIDE_BUTTON:
-        case MULTIPLY_BUTTON:
+        case kJVPPlusButton:
+        case kJVPMinusButton:
+        case kJVPDivideButton:
+        case kJVPMultiplyButton:
             break;
-        case EQUAL_BUTTON:
-        case OPEN_APP_BUTTON:
-            [self freshStartWithSign:MULTIPLY andButton:MULTIPLY_BUTTON];
+        case kJVPEqualButton:
+        case kJVPOpenAppButton:
+            [self freshStartWithSign:kJVPPercentSign andButton:kJVPMultiplyButton];
     }
 }
 
@@ -423,8 +423,8 @@
     
     switch (lastButtonPressed) {
             
-        case FIGURE_BUTTON:
-        case CHANGE_BUTTON:
+        case kJVPFigureButton:
+        case kJVPChangeButton:
             secondNumber = [self numberFromString:numberString];
             result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
             backupResult = result;
@@ -437,7 +437,7 @@
             secondNumber = zero;
             break;
             
-        case EQUAL_BUTTON:
+        case kJVPEqualButton:
             secondNumber = backupSecondNumber;
             firstNumber = backupResult;
             result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
@@ -448,11 +448,11 @@
             secondNumber = zero;
             break;
             
-        case PLUS_BUTTON:
-        case MULTIPLY_BUTTON:
-        case DIVIDE_BUTTON:
-        case MINUS_BUTTON:
-        case PERCENT_BUTTON:
+        case kJVPPlusButton:
+        case kJVPMultiplyButton:
+        case kJVPDivideButton:
+        case kJVPMinusButton:
+        case kJVPPercentButton:
             secondNumber = firstNumber;
             result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
             backupResult = result;
@@ -463,7 +463,7 @@
             secondNumber = zero;
             break;
             
-        case OPEN_APP_BUTTON:
+        case kJVPOpenAppButton:
             result = zero;
             backupResult = result;
             numberString = [self stringForCurrentBackupResult];
@@ -471,7 +471,7 @@
             break;
             
     }
-    lastButtonPressed = EQUAL_BUTTON;
+    lastButtonPressed = kJVPEqualButton;
 
 }
 
