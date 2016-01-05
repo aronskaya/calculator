@@ -456,9 +456,12 @@
             secondNumber = firstNumber;
             result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
             backupResult = result;
+            backupSecondNumber = secondNumber;
             numberString = [self stringForCurrentBackupResult];
             output.text = numberString;
-            
+            firstNumber = zero;
+            secondNumber = zero;
+            break;
             
         case OPEN_APP_BUTTON:
             result = zero;
@@ -469,6 +472,7 @@
             
     }
     lastButtonPressed = EQUAL_BUTTON;
+
 }
 
 @end
