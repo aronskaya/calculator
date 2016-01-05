@@ -45,7 +45,7 @@
     NSDecimalNumberHandler *handler = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain scale:11 raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
     [NSDecimalNumber setDefaultBehavior:handler];
     
-    //configuring an NSNumberFormatter for output of numbers less than 100 000 000
+    //configuring an NSNumberFormatter for output of most numbers
     
     regularNumberFormatter = [[NSNumberFormatter alloc] init];
     regularNumberFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
@@ -186,8 +186,7 @@
 }
 
 - (IBAction)commaButton:(id)sender {
-    
-    if (([numberString isEqualToString:@""]) || ([numberString isEqualToString:@"0"]) || (lastButtonPressed == kJVPPlusButton) || (lastButtonPressed == kJVPMinusButton) || (lastButtonPressed == kJVPDivideButton) || (lastButtonPressed == kJVPMultiplyButton)) {
+    if (([numberString isEqualToString:@""]) || ([numberString isEqualToString:@"0"]) || (lastButtonPressed == kJVPPlusButton) || (lastButtonPressed == kJVPMinusButton) || (lastButtonPressed == kJVPDivideButton) || (lastButtonPressed == kJVPMultiplyButton) || (lastButtonPressed == kJVPEqualButton)) {
         numberString = @"0.";
         output.text = numberString;
     }
