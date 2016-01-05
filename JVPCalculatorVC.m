@@ -386,7 +386,6 @@
     switch (lastButtonPressed) {
         case kJVPFigureButton:
         case kJVPChangeButton:
-        case kJVPPercentButton:
             
             if ([firstNumber compare:zero] == NSOrderedSame) {
                 firstNumber = [self numberFromString:numberString];
@@ -396,8 +395,8 @@
                 backupResult = result;
                 numberString = [self stringForCurrentBackupResult];
                 output.text = numberString;
-                firstNumber = backupResult;
                 numberString = @"";
+                firstNumber = zero;
             }
             else {
                 secondNumber = [self numberFromString:numberString];
@@ -407,16 +406,31 @@
                 output.text = numberString;
                 firstNumber = backupResult;
                 numberString = @"";
+                firstNumber = zero;
             }
+            break;
+        case kJVPPercentButton:
+        case kJVPEqualButton:
+            firstNumber = backupResult;
+            secondNumber = zero;
+            result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
+            backupResult = result;
+            numberString = [self stringForCurrentBackupResult];
+            output.text = numberString;
+            numberString = @"";
+            firstNumber = zero;
+            break;
+
         case kJVPPlusButton:
         case kJVPMinusButton:
         case kJVPDivideButton:
         case kJVPMultiplyButton:
             break;
-        case kJVPEqualButton:
         case kJVPOpenAppButton:
-            [self freshStartWithSign:kJVPPercentSign andButton:kJVPMultiplyButton];
+            [self freshStartWithSign:kJVPPercentSign andButton:kJVPPercentButton];
+            break;
     }
+    lastButtonPressed = kJVPPercentButton;
 }
 
 - (IBAction)equalSign:(id)sender {
