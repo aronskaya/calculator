@@ -30,6 +30,7 @@
     
     // Setting initial values
     
+    self.doTheMath = [[DoTheMath alloc]init];
     output.text = @"0";
     numberString = @"";
     zero = [NSDecimalNumber zero];
@@ -37,10 +38,12 @@
     secondNumber = zero;
     backupResult = zero;
     backupSecondNumber = zero;
-    self.doTheMath = [[DoTheMath alloc]init];
     result = zero;
     lastButtonPressed = OPEN_APP_BUTTON;
     currentSign = NONE;
+    
+    NSDecimalNumberHandler *handler = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain scale:11 raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
+    [NSDecimalNumber setDefaultBehavior:handler];
     
     //configuring an NSNumberFormatter for output of numbers less than 100 000 000
     
@@ -51,8 +54,6 @@
     numberFormatter.decimalSeparator = @".";
     numberFormatter.maximumFractionDigits = 30;
     numberFormatter.minimumFractionDigits = 0;
-    numberFormatter.positiveInfinitySymbol = @"Not a number";
-    numberFormatter.negativeInfinitySymbol = @"Not a number";
     
     //configuring an NSNumberFormatter for output of numbers more than 100 000 000
     smallBigNumberFormatter = [[NSNumberFormatter alloc]init];
@@ -63,20 +64,24 @@
     smallBigNumberFormatter.maximumFractionDigits = 30;
     smallBigNumberFormatter.minimumFractionDigits = 0;
     smallBigNumberFormatter.exponentSymbol = @"e";
-    smallBigNumberFormatter.positiveInfinitySymbol = @"Not a number";
-    smallBigNumberFormatter.negativeInfinitySymbol = @"Not a number";
     
     //configuring the display label
     output.numberOfLines = 1;
+    output.lineBreakMode = NSLineBreakByClipping;
     output.adjustsFontSizeToFitWidth = YES;
     output.minimumScaleFactor = 8.0/[UIFont labelFontSize];
 }
 
 -(NSString *)stringForCurrentBackupResult {
+    //checking for division on zero and other mathematical errors
+    if ([backupResult compare:[NSDecimalNumber notANumber]] == NSOrderedSame) {
+        return @"Error";
+    }
     
+    //specifying conditions when regular or scientific format of output is used
     NSNumberFormatter *selectedNumberFormatter;
-    NSDecimalNumber *smallNumber = [NSDecimalNumber decimalNumberWithString:@"0.0000000000001"];
-    NSDecimalNumber *bigNumber = [NSDecimalNumber decimalNumberWithString:@"1000000000000"];
+    NSDecimalNumber *smallNumber = [NSDecimalNumber decimalNumberWithString:@"0.00000000001"];
+    NSDecimalNumber *bigNumber = [NSDecimalNumber decimalNumberWithString:@"999999999999"];
     
     //getting absolute value of a number
     NSDecimal decimalStruct = backupResult.decimalValue;
@@ -84,9 +89,9 @@
     decimalStruct._isNegative = integer;
     NSDecimalNumber *positiveNumber = [NSDecimalNumber decimalNumberWithDecimal:decimalStruct];
     
-    
     //choosing the appropriate formatter
-    if (([positiveNumber compare:bigNumber] == NSOrderedDescending) || ([positiveNumber compare:bigNumber] == NSOrderedSame) || ([positiveNumber compare:smallNumber] == NSOrderedAscending) || ([positiveNumber compare:smallNumber] == NSOrderedSame)) {
+    if (([positiveNumber compare:zero] == NSOrderedDescending) && (([positiveNumber compare:bigNumber] == NSOrderedDescending) || ([positiveNumber compare:bigNumber] == NSOrderedSame) || ([positiveNumber compare:smallNumber] == NSOrderedAscending) || ([positiveNumber compare:smallNumber] == NSOrderedSame))) {
+        
         selectedNumberFormatter = smallBigNumberFormatter;
     }
     else {
@@ -182,7 +187,7 @@
 
 - (IBAction)commaButton:(id)sender {
     
-    if (([numberString isEqualToString:@""]) || (lastButtonPressed == PLUS_BUTTON) || (lastButtonPressed == MINUS_BUTTON) || (lastButtonPressed == DIVIDE_BUTTON) || (lastButtonPressed == MULTIPLY_BUTTON)) {
+    if (([numberString isEqualToString:@""]) || ([numberString isEqualToString:@"0"]) || (lastButtonPressed == PLUS_BUTTON) || (lastButtonPressed == MINUS_BUTTON) || (lastButtonPressed == DIVIDE_BUTTON) || (lastButtonPressed == MULTIPLY_BUTTON)) {
         numberString = @"0.";
         output.text = numberString;
     }
