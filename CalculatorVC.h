@@ -17,32 +17,29 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
     MULTIPLY_BUTTON,
     DIVIDE_BUTTON,
     PERCENT_BUTTON,
-    
     CHANGE_BUTTON,
-    
     FIGURE_BUTTON,
-    
-
 };
 
 @interface CalculatorVC : UIViewController {
     TheSign currentSign;
     LastButtonPressed lastButtonPressed;
-    double result;
-
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *output;
 @property (strong, nonatomic) NSString *numberString;
 
-@property (strong,nonatomic) NSNumber *firstNumber;
-@property (strong,nonatomic) NSNumber *secondNumber;
-@property (strong, nonatomic) NSNumber *backupSecondNumber;
-@property (strong, nonatomic) NSNumber *backupResult;
+@property (strong,nonatomic) NSDecimalNumber *firstNumber;
+@property (strong,nonatomic) NSDecimalNumber *secondNumber;
+@property (strong, nonatomic) NSDecimalNumber *backupSecondNumber;
+@property (strong, nonatomic) NSDecimalNumber *backupResult;
+@property (strong, nonatomic) NSDecimalNumber *result;
 
 @property (strong, nonatomic) DoTheMath *doTheMath;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 @property (strong, nonatomic) NSNumberFormatter *smallBigNumberFormatter;
+
+@property (strong, nonatomic) NSDecimalNumber *zero;
 
 
 - (IBAction)zeroButton:(id)sender;
@@ -64,7 +61,6 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 - (IBAction)divisionSign:(id)sender;
 - (IBAction)multiplySign:(id)sender;
 
-
 - (IBAction)ACButton:(id)sender;
 - (IBAction)changeSignButton:(id)sender;
 - (IBAction)percentButton:(id)sender;
@@ -74,10 +70,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 -(void)freshStartWithSign:(TheSign)sign andButton:(LastButtonPressed)button;
 
 -(NSString *)stringForCurrentBackupResult;
-
-//-(void)resultCalculationsForFirstNumber:(NSNumber *)firstNumber secondNumber:(NSNumber *)secondNumber;
-
-
+-(NSDecimalNumber *)numberFromString:(NSString *)receivedNumberString;
 
 @end
 

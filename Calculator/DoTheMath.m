@@ -10,49 +10,39 @@
 #import "CalculatorVC.h"
 
 @implementation DoTheMath
--(double)firstNumber:(NSNumber *)firstNumber sign:(TheSign)currentSign secondNumber:(NSNumber *)secondNumber {
-    double result;
+-(NSDecimalNumber *)firstNumber:(NSDecimalNumber *)firstNumber sign:(TheSign)currentSign secondNumber:(NSDecimalNumber *)secondNumber {
+    
+    NSDecimalNumber *hundred = [NSDecimalNumber decimalNumberWithString:@"100"];
     
     switch (currentSign) {
         case PLUS:
-            result = firstNumber.doubleValue + secondNumber.doubleValue;
-             return result;
+            return [firstNumber decimalNumberByAdding:secondNumber];
             break;
             
         case MINUS:
-            result = firstNumber.doubleValue - secondNumber.doubleValue;
-             return result;
+            return [firstNumber decimalNumberBySubtracting:secondNumber];
             break;
             
         case DIVIDE:
-            result = firstNumber.doubleValue / secondNumber.doubleValue;
-             return result;
+            return [firstNumber decimalNumberByDividingBy:secondNumber];
             break;
             
         case MULTIPLY:
-            result = firstNumber.doubleValue * secondNumber.doubleValue;
-             return result;
+            return [firstNumber decimalNumberByMultiplyingBy:secondNumber];
             break;
             
         case PERCENT:
-            if ([secondNumber isEqual:@0]) {
-                result = (firstNumber.doubleValue / 100);
-                return result;
-                break;
+            if ([secondNumber compare:[NSDecimalNumber zero]] == NSOrderedSame) {
+                return [firstNumber decimalNumberByDividingBy:hundred];
             } else {
-                result = (firstNumber.doubleValue / 100 * secondNumber.doubleValue);
-                return result;
+                return [[firstNumber decimalNumberByDividingBy:hundred]decimalNumberByMultiplyingBy:secondNumber];
             }
+            break;
             
         case NONE:
-            return secondNumber.doubleValue;
+            return secondNumber;
             break;
-
     }
-
 }
-
-
-
 
 @end

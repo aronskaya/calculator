@@ -19,8 +19,6 @@ typedef NS_ENUM(NSInteger, TheSign) {
 
 @interface DoTheMath : NSObject
 
-@property (strong, nonatomic) id result;
-
--(double)firstNumber:(NSNumber *)firstNumber sign:(TheSign)currentSign secondNumber:(NSNumber *)secondNumber;
+-(NSDecimalNumber *)firstNumber:(NSDecimalNumber *)firstNumber sign:(TheSign)currentSign secondNumber:(NSDecimalNumber *)secondNumber;
 
 @end
