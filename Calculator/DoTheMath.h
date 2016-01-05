@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, TheSign) {
     DIVIDE,
     MULTIPLY,
     PERCENT,
+    NONE,
 };
 
 @interface DoTheMath : NSObject

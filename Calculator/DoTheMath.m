@@ -39,9 +39,13 @@
                 result = (firstNumber.doubleValue / 100);
                 return result;
                 break;
-            } else
+            } else {
                 result = (firstNumber.doubleValue / 100 * secondNumber.doubleValue);
                 return result;
+            }
+            
+        case NONE:
+            return secondNumber.doubleValue;
             break;
 
     }

@@ -10,6 +10,7 @@
 #import "DoTheMath.h"
 
 typedef NS_ENUM(NSInteger, LastButtonPressed) {
+    OPEN_APP_BUTTON,
     EQUAL_BUTTON,
     PLUS_BUTTON,
     MINUS_BUTTON,
@@ -21,9 +22,8 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
     
     FIGURE_BUTTON,
     
-    OPEN_APP_BUTTON,
-};
 
+};
 
 @interface CalculatorVC : UIViewController {
     TheSign currentSign;
@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 
 @property (strong, nonatomic) DoTheMath *doTheMath;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
-@property (strong, nonatomic) NSNumberFormatter *bigNumberFormatter;
+@property (strong, nonatomic) NSNumberFormatter *smallBigNumberFormatter;
 
 
 - (IBAction)zeroButton:(id)sender;
@@ -71,11 +71,9 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonACOutlet;
 
-
-
 -(void)freshStartWithSign:(TheSign)sign andButton:(LastButtonPressed)button;
 
--(NSNumberFormatter *)numberFormatterForCurrentBackupResult;
+-(NSString *)stringForCurrentBackupResult;
 
 //-(void)resultCalculationsForFirstNumber:(NSNumber *)firstNumber secondNumber:(NSNumber *)secondNumber;
 
