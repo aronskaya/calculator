@@ -71,6 +71,8 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 
 -(NSString *)stringForCurrentBackupResult;
 -(NSDecimalNumber *)numberFromString:(NSString *)receivedNumberString;
+-(void)calculateContunuously;
+-(void)firstNumberSet;
 
 @end
 

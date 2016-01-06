@@ -41,7 +41,6 @@
     result = zero;
     lastButtonPressed = kJVPOpenAppButton;
     currentSign = kJVPNoneSign;
-    
     NSDecimalNumberHandler *handler = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain scale:11 raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
     [NSDecimalNumber setDefaultBehavior:handler];
     
@@ -54,7 +53,7 @@
     regularNumberFormatter.maximumFractionDigits = 15;
     regularNumberFormatter.minimumFractionDigits = 0;
     
-    //configuring an NSNumberFormatter for output of numbers more than 100 000 000
+    //configuring an NSNumberFormatter for output of long numbers
     smallBigNumberFormatter = [[NSNumberFormatter alloc]init];
     smallBigNumberFormatter.numberStyle = kCFNumberFormatterScientificStyle;
     smallBigNumberFormatter.usesGroupingSeparator = YES;
@@ -71,17 +70,29 @@
     output.minimumScaleFactor = 7.0/[UIFont labelFontSize];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Helper Functions Section
+
+/**
+ Returns a string made of current backupResult
+ */
 -(NSString *)stringForCurrentBackupResult {
     //checking for division on zero and other mathematical errors
     if ([backupResult compare:[NSDecimalNumber notANumber]] == NSOrderedSame) {
         return @"Error";
     }
     
-    //specifying conditions when regular or scientific format of output is used
+    //specifying conditions when regular or scientific style format of output is used
     NSNumberFormatter *selectedNumberFormatter;
     NSDecimalNumber *smallNumber = [NSDecimalNumber decimalNumberWithString:@"0.0000000000001"];
     NSDecimalNumber *bigNumber = [NSDecimalNumber decimalNumberWithString:@"999999999999999"];
     
+    //configuring a temporary local formatter to make a string (checkString) so we could see if the number is too long for standard output
     NSNumberFormatter *tempNumberFormatter = [[NSNumberFormatter alloc]init];
     tempNumberFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
     tempNumberFormatter.usesGroupingSeparator = NO;
@@ -105,12 +116,13 @@
         selectedNumberFormatter = smallBigNumberFormatter;
     }
     
-    //checking if the number isn't too long
+
     else
         selectedNumberFormatter = regularNumberFormatter;
+    
+        //checking if the number isn't too long. If it is, round it off
         if (checkString.length >= 15)
         {
-
             NSRange rangeOfPoint = [checkString rangeOfString:@"."];
             short symbolsToRoundOff = checkString.length - 15 + 1;
             short symbolsAfterPoint = checkString.length - rangeOfPoint.location - 1;
@@ -126,10 +138,22 @@
     return resultString;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+/**
+ Makes basic calculations for cases like 10 + 3 - 1 + 5... (continuous calculations not involving equal button)
+ */
+-(void)calculateContunuously {
+    secondNumber = [self numberFromString:numberString];
+    result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
+    backupResult = result;
+    numberString = [self stringForCurrentBackupResult];
+    output.text = numberString;
+    firstNumber = backupResult;
+    numberString = @"";
+}
 
-    // Dispose of any resources that can be recreated.
+-(void)firstNumberSet {
+    firstNumber = [self numberFromString:numberString];
+    numberString = @"";
 }
 
 /*
@@ -143,6 +167,9 @@
 */
 
 
+/**
+ Adds a figure to the end of the numberString when appropriate button is pressed
+ */
 -(NSString *)appendingFigure:(NSString *)figureString {
     if ([numberString isEqualToString:@"0"]) {
         numberString = figureString;
@@ -164,6 +191,8 @@
     currentSign = sign;
     lastButtonPressed = button;
 }
+
+#pragma mark - Figure and Comma Buttons Section
 
 - (IBAction)zeroButton:(id)sender {
     if (![numberString isEqualToString:@"0"]) {
@@ -219,6 +248,7 @@
     }
 }
 
+#pragma mark - Signs Buttons Section
 
 - (IBAction)plusSign:(id)sender {
     switch (lastButtonPressed) {
@@ -227,20 +257,12 @@
             
             //standard calculations, e.g. 10 + 3 = ...
             if ([firstNumber compare:zero] == NSOrderedSame) {
-                firstNumber = [self numberFromString:numberString];
-                numberString = @"";
+                [self firstNumberSet];
             }
             
             //continuous calculations, e.g. 10 + 3 + 5...
             else {
-                secondNumber = [self numberFromString:numberString];
-                result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
-                backupResult = result;
-                numberString = [self stringForCurrentBackupResult];
-                output.text = numberString;
-                
-                firstNumber = backupResult;
-                numberString = @"";
+                [self calculateContunuously];
             }
             currentSign = kJVPPlusSign;
             lastButtonPressed = kJVPPlusButton;
@@ -258,7 +280,6 @@
         case kJVPOpenAppButton:
             [self freshStartWithSign:kJVPPlusSign andButton:kJVPPlusButton];
     }
-    
 }
 
 - (IBAction)minusSign:(id)sender {
@@ -267,19 +288,11 @@
         case kJVPChangeButton:
                         //standard calculations, e.g. 10 + 3 = ...
             if ([firstNumber compare:zero] == NSOrderedSame) {
-                firstNumber = [self numberFromString:numberString];
-                numberString = @"";
+                [self firstNumberSet];
             }
                         //continuous calculations, e.g. 10 + 3 + 5...
             else {
-                secondNumber = [self numberFromString:numberString];
-                result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
-                backupResult = result;
-                numberString = [self stringForCurrentBackupResult];
-                output.text = numberString;
-                
-                firstNumber = backupResult;
-                numberString = @"";
+                [self calculateContunuously];
             }
             currentSign = kJVPMinusSign;
             lastButtonPressed = kJVPMinusButton;
@@ -307,19 +320,11 @@
         case kJVPChangeButton:
             //standard calculations, e.g. 10 + 3 = ...
             if ([firstNumber compare:zero] == NSOrderedSame) {
-                firstNumber = [self numberFromString:numberString];
-                numberString = @"";
+                [self firstNumberSet];
             }
             //continuous calculations, e.g. 10 + 3 + 5...
             else {
-                secondNumber = [self numberFromString:numberString];
-                result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
-                backupResult = result;
-                numberString = [self stringForCurrentBackupResult];
-                output.text = numberString;
-                
-                firstNumber = backupResult;
-                numberString = @"";
+                [self calculateContunuously];
             }
             currentSign = kJVPDivideSign;
             lastButtonPressed = kJVPDivideButton;
@@ -344,19 +349,11 @@
         case kJVPChangeButton:
             //standard calculations, e.g. 10 + 3 = ...
             if ([firstNumber compare:zero] == NSOrderedSame) {
-                firstNumber = [self numberFromString:numberString];
-                numberString = @"";
+                [self firstNumberSet];
             }
             //continuous calculations, e.g. 10 + 3 + 5...
             else {
-                secondNumber = [self numberFromString:numberString];
-                result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
-                backupResult = result;
-                numberString = [self stringForCurrentBackupResult];
-                output.text = numberString;
-                
-                firstNumber = backupResult;
-                numberString = @"";
+                [self calculateContunuously];
             }
             currentSign = kJVPMultiplySign;
             lastButtonPressed = kJVPMultiplyButton;
@@ -374,8 +371,9 @@
         case kJVPOpenAppButton:
             [self freshStartWithSign:kJVPMultiplySign andButton:kJVPMultiplyButton];
     }
-    
 }
+
+#pragma mark - AC, Change Sign, Percent and Equals Buttons Section
 
 - (IBAction)ACButton:(id)sender {
     firstNumber = zero;
@@ -386,7 +384,6 @@
     result = zero;
     currentSign = kJVPNoneSign;
     lastButtonPressed = kJVPOpenAppButton;
-    
 }
 
 - (IBAction)changeSignButton:(id)sender {
@@ -410,7 +407,6 @@
             if ([firstNumber compare:zero] == NSOrderedSame) {
                 firstNumber = [self numberFromString:numberString];
                 secondNumber = zero;
-                
                 result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
                 backupResult = result;
                 numberString = [self stringForCurrentBackupResult];
@@ -419,13 +415,7 @@
                 firstNumber = zero;
             }
             else {
-                secondNumber = [self numberFromString:numberString];
-                result = [self.doTheMath firstNumber:firstNumber sign:currentSign secondNumber:secondNumber];
-                backupResult = result;
-                numberString = [self stringForCurrentBackupResult];
-                output.text = numberString;
-                firstNumber = backupResult;
-                numberString = @"";
+                [self calculateContunuously];
                 firstNumber = zero;
             }
             break;
@@ -506,7 +496,5 @@
             
     }
     lastButtonPressed = kJVPEqualButton;
-
 }
-
 @end
