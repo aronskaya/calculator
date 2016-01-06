@@ -46,7 +46,6 @@
     [NSDecimalNumber setDefaultBehavior:handler];
     
     //configuring an NSNumberFormatter for output of most numbers
-    
     regularNumberFormatter = [[NSNumberFormatter alloc] init];
     regularNumberFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
     regularNumberFormatter.usesGroupingSeparator = YES;
@@ -80,23 +79,47 @@
     
     //specifying conditions when regular or scientific format of output is used
     NSNumberFormatter *selectedNumberFormatter;
-    NSDecimalNumber *smallNumber = [NSDecimalNumber decimalNumberWithString:@"0.0000000001"];
-    NSDecimalNumber *bigNumber = [NSDecimalNumber decimalNumberWithString:@"999999999999"];
+    NSDecimalNumber *smallNumber = [NSDecimalNumber decimalNumberWithString:@"0.0000000000001"];
+    NSDecimalNumber *bigNumber = [NSDecimalNumber decimalNumberWithString:@"999999999999999"];
+    
+    NSNumberFormatter *tempNumberFormatter = [[NSNumberFormatter alloc]init];
+    tempNumberFormatter.numberStyle = kCFNumberFormatterDecimalStyle;
+    tempNumberFormatter.usesGroupingSeparator = NO;
+    tempNumberFormatter.decimalSeparator = @".";
+    tempNumberFormatter.maximumFractionDigits = 15;
+    tempNumberFormatter.minimumFractionDigits = 0;
+    NSString *checkString = [tempNumberFormatter stringFromNumber:backupResult];
+    
     
     //getting absolute value of a number
     NSDecimal decimalStruct = backupResult.decimalValue;
-    unsigned int integer = 0;
-    decimalStruct._isNegative = integer;
+    unsigned int isPositive = 0;
+    decimalStruct._isNegative = isPositive;
     NSDecimalNumber *positiveNumber = [NSDecimalNumber decimalNumberWithDecimal:decimalStruct];
     
+    
     //choosing the appropriate formatter
+    
     if (([positiveNumber compare:zero] == NSOrderedDescending) && (([positiveNumber compare:bigNumber] == NSOrderedDescending) || ([positiveNumber compare:bigNumber] == NSOrderedSame) || ([positiveNumber compare:smallNumber] == NSOrderedAscending) || ([positiveNumber compare:smallNumber] == NSOrderedSame))) {
         
         selectedNumberFormatter = smallBigNumberFormatter;
     }
-    else {
+    
+    //checking if the number isn't too long
+    else
         selectedNumberFormatter = regularNumberFormatter;
-    }
+        if (checkString.length >= 15)
+        {
+
+            NSRange rangeOfPoint = [checkString rangeOfString:@"."];
+            short symbolsToRoundOff = checkString.length - 15 + 1;
+            short symbolsAfterPoint = checkString.length - rangeOfPoint.location - 1;
+            short symbolsAfterPointToLeave = symbolsAfterPoint - symbolsToRoundOff;
+            
+            NSDecimalNumberHandler *roundOffHandler = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain scale:symbolsAfterPointToLeave raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
+            backupResult = [backupResult decimalNumberByRoundingAccordingToBehavior:roundOffHandler];
+            
+        }
     
     //generating string
     NSString *resultString = [selectedNumberFormatter stringFromNumber:backupResult];
@@ -376,8 +399,6 @@
     output.text = numberString;
     lastButtonPressed = kJVPChangeButton;
 }
-
-#pragma mark - Current Working Point
 
 - (IBAction)percentButton:(id)sender {
     currentSign = kJVPPercentSign;
