@@ -1,27 +1,82 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="ol9-cV-QGe">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="SvT-os-dAo">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="ol9-cV-QGe" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="u0f-XZ-evA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hye-q5-OaA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="mDc-FP-yAl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Pz-bR-if1" userLabel="GreyView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="200"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="BMi-Uw-3zh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cr2-KT-DId">
+                                <rect key="frame" x="0.0" y="220" width="150" height="380"/>
+                                <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THf-6b-OTi">
+                                <rect key="frame" x="450" y="220" width="150" height="380"/>
+                                <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akh-hS-O1f">
+                                <rect key="frame" x="300" y="220" width="150" height="380"/>
+                                <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkv-ng-BEH">
+                                <rect key="frame" x="150" y="220" width="150" height="380"/>
+                                <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hye-q5-OaA" firstAttribute="top" secondItem="akh-hS-O1f" secondAttribute="bottom" id="1Zk-mJ-FLs"/>
+                            <constraint firstItem="THf-6b-OTi" firstAttribute="leading" secondItem="akh-hS-O1f" secondAttribute="trailing" id="2Qq-g0-wOY"/>
+                            <constraint firstItem="Mkv-ng-BEH" firstAttribute="leading" secondItem="Cr2-KT-DId" secondAttribute="trailing" id="3pv-h4-L34"/>
+                            <constraint firstItem="Hye-q5-OaA" firstAttribute="top" secondItem="THf-6b-OTi" secondAttribute="bottom" id="82g-Ox-Zow"/>
+                            <constraint firstItem="6Pz-bR-if1" firstAttribute="leading" secondItem="Cr2-KT-DId" secondAttribute="leading" id="EYr-BJ-bp9"/>
+                            <constraint firstItem="Mkv-ng-BEH" firstAttribute="width" secondItem="Cr2-KT-DId" secondAttribute="width" id="LQs-RP-f2f"/>
+                            <constraint firstItem="6Pz-bR-if1" firstAttribute="top" secondItem="u0f-XZ-evA" secondAttribute="bottom" id="P2a-U1-vhW"/>
+                            <constraint firstItem="akh-hS-O1f" firstAttribute="width" secondItem="Cr2-KT-DId" secondAttribute="width" id="SNB-BW-Gvm"/>
+                            <constraint firstItem="THf-6b-OTi" firstAttribute="top" secondItem="6Pz-bR-if1" secondAttribute="bottom" id="T1d-1e-OPh"/>
+                            <constraint firstItem="Mkv-ng-BEH" firstAttribute="top" secondItem="6Pz-bR-if1" secondAttribute="bottom" id="TRK-tc-Yt2"/>
+                            <constraint firstItem="Cr2-KT-DId" firstAttribute="leading" secondItem="mDc-FP-yAl" secondAttribute="leading" id="Y7F-pi-K5e"/>
+                            <constraint firstItem="Hye-q5-OaA" firstAttribute="top" secondItem="Cr2-KT-DId" secondAttribute="bottom" id="YFw-eX-eNk"/>
+                            <constraint firstAttribute="bottom" secondItem="6Pz-bR-if1" secondAttribute="bottom" constant="394" id="dG6-VR-Dmd"/>
+                            <constraint firstItem="akh-hS-O1f" firstAttribute="top" secondItem="6Pz-bR-if1" secondAttribute="bottom" id="eiW-D9-j1F"/>
+                            <constraint firstItem="akh-hS-O1f" firstAttribute="leading" secondItem="Mkv-ng-BEH" secondAttribute="trailing" id="gss-em-Tbh"/>
+                            <constraint firstItem="Hye-q5-OaA" firstAttribute="top" secondItem="Mkv-ng-BEH" secondAttribute="bottom" id="k6u-l8-SVe"/>
+                            <constraint firstItem="THf-6b-OTi" firstAttribute="width" secondItem="Cr2-KT-DId" secondAttribute="width" id="pFQ-Tr-XIm"/>
+                            <constraint firstItem="Cr2-KT-DId" firstAttribute="top" secondItem="6Pz-bR-if1" secondAttribute="bottom" id="way-yr-7MW"/>
+                            <constraint firstAttribute="trailing" secondItem="THf-6b-OTi" secondAttribute="trailing" id="xFN-gq-UWN"/>
+                            <constraint firstItem="6Pz-bR-if1" firstAttribute="trailing" secondItem="THf-6b-OTi" secondAttribute="trailing" id="xeI-7t-hMN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dG6-VR-Dmd"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x7v-nA-gGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="82" y="-538"/>
         </scene>
     </scenes>
 </document>
