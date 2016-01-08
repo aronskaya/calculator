@@ -171,7 +171,7 @@
  Adds a figure to the end of the numberString when appropriate button is pressed
  */
 -(NSString *)appendingFigure:(NSString *)figureString {
-    if ([numberString isEqualToString:@"0"]) {
+    if ([numberString isEqualToString:@"0"] || (lastButtonPressed == kJVPEqualButton)) {
         numberString = figureString;
     } else {
         numberString = [numberString stringByAppendingString:figureString];
