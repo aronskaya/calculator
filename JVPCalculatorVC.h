@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JVPDoTheMath.h"
-#import "JVPPopoverVC.h"
+#import "JVPPopoverContentVC.h"
 
 typedef NS_ENUM(NSInteger, LastButtonPressed) {
     kJVPOpenAppButton,
@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
     kJVPFigureButton,
 };
 
-@interface JVPCalculatorVC : UIViewController <UIPopoverPresentationControllerDelegate> {
+@interface JVPCalculatorVC : UIViewController <UIPopoverPresentationControllerDelegate, JVPPopoverContentVCDelegate> {
     TheSign currentSign;
     LastButtonPressed lastButtonPressed;
 }
@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 @property (strong, nonatomic) NSNumberFormatter *smallBigNumberFormatter;
 @property (strong, nonatomic) NSDecimalNumber *zero;
 
-@property (strong, nonatomic) UIViewController *popController;
+@property (strong, nonatomic) UIViewController *popContentController;
 
 
 - (IBAction)zeroButton:(id)sender;
@@ -69,9 +69,6 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonACOutlet;
 
-- (IBAction)infoButtonPressed:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *infoButtonOutlet;
-
 -(void)freshStartWithSign:(TheSign)sign andButton:(LastButtonPressed)button;
 
 -(NSString *)stringForCurrentBackupResult;
@@ -79,7 +76,7 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 -(void)calculateContunuously;
 -(void)firstNumberSet;
 
--(void) presentPopup;
+//-(void)presentPopup:(UIViewController *)controller;
 
 @end
 

@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="SF-UI-Display-Ultralight.otf">
@@ -27,6 +29,7 @@
             <string>SFUIDisplay-Ultralight</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Light.otf">
+            <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
         </mutableArray>
     </customFonts>
@@ -444,10 +447,7 @@
                                     <rect key="frame" x="9" y="190" width="22" height="22"/>
                                 </variation>
                                 <connections>
-                                    <action selector="infoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cai-Dh-C6j"/>
-                                    <segue destination="BQA-EF-I0L" kind="popoverPresentation" popoverAnchorView="gmA-Q8-ysg" id="XOY-eA-sDo">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="BQA-EF-I0L" kind="presentation" id="XOY-eA-sDo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -559,69 +559,117 @@
                     <navigationItem key="navigationItem" title="Title" id="25L-ez-D5Z"/>
                     <connections>
                         <outlet property="buttonACOutlet" destination="He3-Qe-M5m" id="0mv-43-9bT"/>
-                        <outlet property="infoButtonOutlet" destination="gmA-Q8-ysg" id="jt4-2b-hCc"/>
                         <outlet property="output" destination="mKo-HT-yYm" id="YVT-Yj-E2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="167"/>
+            <point key="canvasLocation" x="271" y="166.5"/>
         </scene>
         <!--Pop-->
         <scene sceneID="PzD-gh-Dsq">
             <objects>
-                <viewController storyboardIdentifier="Pop" title="Pop" id="BQA-EF-I0L" customClass="JVPPopoverVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Pop" title="Pop" id="BQA-EF-I0L" customClass="JVPPopoverContentVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b7i-X6-YiV"/>
                         <viewControllerLayoutGuide type="bottom" id="Tqh-rU-9Ld"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uKh-Hf-G8t">
+                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="uKh-Hf-G8t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQr-2q-fnh">
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sky-dq-IYX" userLabel="Grey">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQr-2q-fnh">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <string key="text">Please email us at ambercalculator@gmail.com—we're looking forward to your suggestions and ideas to help us make the app better.</string>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="ol7-h8-hwA">
+                                        <variation key="heightClass=regular" constant="400"/>
+                                    </constraint>
+                                </constraints>
+                                <string key="text">Please feel free to contact us at any subject concerning the app. We are looking forward to your suggestions and ideas at ambercalculator@gmail.com.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ol7-h8-hwA"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="ol7-h8-hwA"/>
+                                    </mask>
+                                </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijl-D6-uUl">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="20"/>
+                                <state key="normal" title="Close"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="274" y="541" width="52" height="36"/>
+                                </variation>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="BQA-EF-I0L" eventType="touchUpInside" id="21W-2l-4E6"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="gQr-2q-fnh" secondAttribute="trailing" constant="10" id="1n1-nS-f5C">
-                                <variation key="heightClass=regular" constant="20"/>
+                            <constraint firstItem="ijl-D6-uUl" firstAttribute="top" secondItem="gQr-2q-fnh" secondAttribute="bottom" constant="129" id="1HS-2j-dB7">
+                                <variation key="heightClass=regular" constant="100"/>
                             </constraint>
-                            <constraint firstItem="gQr-2q-fnh" firstAttribute="leading" secondItem="uKh-Hf-G8t" secondAttribute="leading" constant="10" id="IfO-Lq-nZ3">
-                                <variation key="heightClass=regular" constant="20"/>
-                            </constraint>
-                            <constraint firstItem="gQr-2q-fnh" firstAttribute="top" secondItem="b7i-X6-YiV" secondAttribute="bottom" constant="360" id="VuM-dz-nXu">
-                                <variation key="heightClass=regular" constant="20"/>
-                            </constraint>
-                            <constraint firstItem="gQr-2q-fnh" firstAttribute="centerY" secondItem="uKh-Hf-G8t" secondAttribute="centerY" id="ceE-al-u4P"/>
-                            <constraint firstItem="gQr-2q-fnh" firstAttribute="centerX" secondItem="uKh-Hf-G8t" secondAttribute="centerX" id="ckU-6d-klT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gQr-2q-fnh" secondAttribute="trailing" constant="80" id="VgC-fp-Cm5"/>
+                            <constraint firstItem="gQr-2q-fnh" firstAttribute="centerX" secondItem="uKh-Hf-G8t" secondAttribute="centerX" id="WJW-bV-CVw"/>
+                            <constraint firstItem="gQr-2q-fnh" firstAttribute="leading" secondItem="uKh-Hf-G8t" secondAttribute="leadingMargin" constant="80" id="a9X-mf-ni8"/>
+                            <constraint firstItem="Sky-dq-IYX" firstAttribute="top" secondItem="uKh-Hf-G8t" secondAttribute="top" id="b8d-qI-2mf"/>
+                            <constraint firstItem="Tqh-rU-9Ld" firstAttribute="top" secondItem="Sky-dq-IYX" secondAttribute="bottom" id="bGT-YO-9RA"/>
+                            <constraint firstItem="gQr-2q-fnh" firstAttribute="leading" secondItem="Sky-dq-IYX" secondAttribute="trailing" constant="-500" id="cM3-Dl-cG1"/>
+                            <constraint firstItem="gQr-2q-fnh" firstAttribute="centerY" secondItem="uKh-Hf-G8t" secondAttribute="centerY" id="g3u-ea-zv0"/>
+                            <constraint firstItem="Sky-dq-IYX" firstAttribute="leading" secondItem="uKh-Hf-G8t" secondAttribute="leading" id="mxR-J4-gkA"/>
+                            <constraint firstItem="ijl-D6-uUl" firstAttribute="centerX" secondItem="uKh-Hf-G8t" secondAttribute="centerX" id="reD-v7-b5g"/>
+                            <constraint firstAttribute="trailing" secondItem="Sky-dq-IYX" secondAttribute="trailing" id="uev-oF-aD0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="Sky-dq-IYX"/>
                                 <exclude reference="gQr-2q-fnh"/>
+                                <exclude reference="ijl-D6-uUl"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="1n1-nS-f5C"/>
-                                <exclude reference="IfO-Lq-nZ3"/>
-                                <exclude reference="VuM-dz-nXu"/>
-                                <exclude reference="ceE-al-u4P"/>
-                                <exclude reference="ckU-6d-klT"/>
+                                <exclude reference="bGT-YO-9RA"/>
+                                <exclude reference="1HS-2j-dB7"/>
+                                <exclude reference="reD-v7-b5g"/>
+                                <exclude reference="VgC-fp-Cm5"/>
+                                <exclude reference="WJW-bV-CVw"/>
+                                <exclude reference="a9X-mf-ni8"/>
+                                <exclude reference="cM3-Dl-cG1"/>
+                                <exclude reference="g3u-ea-zv0"/>
+                                <exclude reference="b8d-qI-2mf"/>
+                                <exclude reference="mxR-J4-gkA"/>
+                                <exclude reference="uev-oF-aD0"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
+                                <include reference="Sky-dq-IYX"/>
                                 <include reference="gQr-2q-fnh"/>
+                                <include reference="ijl-D6-uUl"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="1n1-nS-f5C"/>
-                                <include reference="IfO-Lq-nZ3"/>
-                                <include reference="VuM-dz-nXu"/>
-                                <include reference="ceE-al-u4P"/>
-                                <include reference="ckU-6d-klT"/>
+                                <include reference="bGT-YO-9RA"/>
+                                <include reference="1HS-2j-dB7"/>
+                                <include reference="reD-v7-b5g"/>
+                                <include reference="VgC-fp-Cm5"/>
+                                <include reference="WJW-bV-CVw"/>
+                                <include reference="a9X-mf-ni8"/>
+                                <exclude reference="cM3-Dl-cG1"/>
+                                <include reference="g3u-ea-zv0"/>
+                                <include reference="b8d-qI-2mf"/>
+                                <include reference="mxR-J4-gkA"/>
+                                <include reference="uev-oF-aD0"/>
                             </mask>
                         </variation>
                     </view>
@@ -630,7 +678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTK-Ch-Edx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="45.75"/>
+            <point key="canvasLocation" x="959" y="166.5"/>
         </scene>
     </scenes>
 </document>

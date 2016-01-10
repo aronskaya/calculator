@@ -6,19 +6,13 @@
 //  Copyright © 2016 Julia Vashchenko. All rights reserved.
 //
 
-#import "JVPPopoverVC.h"
+#import "JVPPopoverContentVC.h"
 
-@interface JVPPopoverVC ()
+@interface JVPPopoverContentVC ()
 
 @end
 
-@implementation JVPPopoverVC
-
-- (void)viewWillAppear:(BOOL)animated {
-    CGFloat width = 300;
-    CGFloat height = 250;
-    self.preferredContentSize = CGSizeMake(width, height);
-}
+@implementation JVPPopoverContentVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +25,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)closeButtonPressed:(id)sender {
+    [self.delegate jVPPopoverContentVCDidClose];
 }
 
 /*

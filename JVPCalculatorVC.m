@@ -68,12 +68,29 @@
     output.lineBreakMode = NSLineBreakByClipping;
     output.adjustsFontSizeToFitWidth = YES;
     output.minimumScaleFactor = 7.0/[UIFont labelFontSize];
+    
+    self.definesPresentationContext = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - JVPPopoverContentVCDelegate Section
+
+-(void)jVPPopoverContentVCDidClose {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    JVPPopoverContentVC *popoverContent = [segue destinationViewController];
+    popoverContent.delegate = self;
 }
 
 #pragma mark - Helper Functions Section
@@ -156,14 +173,6 @@
     numberString = @"";
 }
 
-/*
-#pragma mark - Navigation
-
- In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-}
-*/
-
 
 /**
  Adds a figure to the end of the numberString when appropriate button is pressed
@@ -181,36 +190,6 @@
 
 -(NSDecimalNumber *)numberFromString:(NSString *)receivedNumberString {
     return [NSDecimalNumber decimalNumberWithString:receivedNumberString];
-}
-
-- (IBAction)infoButtonPressed:(id)sender {
-    
-    //telling the compiler that sender is in fact a UIButton,
-    //sender.frame wouldn't work
-    
-    UIButton *button = (UIButton *)sender;
-    
-    // grab the view controller we want to show
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"Pop"];
-    
-    // present the controller
-    // on iPad, this will be a Popover
-    // on iPhone, this will be an action sheet
-    controller.modalPresentationStyle = UIModalPresentationPopover;
-    [self presentViewController:controller animated:YES completion:nil];
-    
-    // configure the Popover presentation controller
-    UIPopoverPresentationController *popController = [controller popoverPresentationController];
-
-    popController.permittedArrowDirections = UIPopoverArrowDirectionUp;
-    popController.delegate = self;
-    
-    // setting the position of the arrow similar to the position of the infoButton
-    popController.sourceView = self.view;
-    popController.sourceRect = button.frame;
-
-
 }
 
 -(void)freshStartWithSign:(TheSign)sign andButton:(LastButtonPressed)button {
