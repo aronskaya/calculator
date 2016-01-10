@@ -159,10 +159,8 @@
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+ In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 */
 
@@ -183,6 +181,36 @@
 
 -(NSDecimalNumber *)numberFromString:(NSString *)receivedNumberString {
     return [NSDecimalNumber decimalNumberWithString:receivedNumberString];
+}
+
+- (IBAction)infoButtonPressed:(id)sender {
+    
+    //telling the compiler that sender is in fact a UIButton,
+    //sender.frame wouldn't work
+    
+    UIButton *button = (UIButton *)sender;
+    
+    // grab the view controller we want to show
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"Pop"];
+    
+    // present the controller
+    // on iPad, this will be a Popover
+    // on iPhone, this will be an action sheet
+    controller.modalPresentationStyle = UIModalPresentationPopover;
+    [self presentViewController:controller animated:YES completion:nil];
+    
+    // configure the Popover presentation controller
+    UIPopoverPresentationController *popController = [controller popoverPresentationController];
+
+    popController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    popController.delegate = self;
+    
+    // setting the position of the arrow similar to the position of the infoButton
+    popController.sourceView = self.view;
+    popController.sourceRect = button.frame;
+
+
 }
 
 -(void)freshStartWithSign:(TheSign)sign andButton:(LastButtonPressed)button {

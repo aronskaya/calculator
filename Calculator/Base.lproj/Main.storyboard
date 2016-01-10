@@ -435,6 +435,21 @@
                                     <action selector="plusSign:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5UP-jp-lZx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-Q8-ysg">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.64587732263513509" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="9" y="190" width="22" height="22"/>
+                                </variation>
+                                <connections>
+                                    <action selector="infoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cai-Dh-C6j"/>
+                                    <segue destination="BQA-EF-I0L" kind="popoverPresentation" popoverAnchorView="gmA-Q8-ysg" id="XOY-eA-sDo">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -524,6 +539,9 @@
                             <constraint firstItem="mGu-pJ-P8F" firstAttribute="width" secondItem="He3-Qe-M5m" secondAttribute="width" id="yld-1x-Mj8"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="gmA-Q8-ysg"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="tTW-xX-gxY"/>
                                 <exclude reference="hfa-yN-eg5"/>
@@ -532,16 +550,87 @@
                                 <exclude reference="5Gl-YK-N68"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="gmA-Q8-ysg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="25L-ez-D5Z"/>
                     <connections>
                         <outlet property="buttonACOutlet" destination="He3-Qe-M5m" id="0mv-43-9bT"/>
+                        <outlet property="infoButtonOutlet" destination="gmA-Q8-ysg" id="jt4-2b-hCc"/>
                         <outlet property="output" destination="mKo-HT-yYm" id="YVT-Yj-E2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="271" y="167"/>
+        </scene>
+        <!--Pop-->
+        <scene sceneID="PzD-gh-Dsq">
+            <objects>
+                <viewController storyboardIdentifier="Pop" title="Pop" id="BQA-EF-I0L" customClass="JVPPopoverVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b7i-X6-YiV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tqh-rU-9Ld"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uKh-Hf-G8t">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQr-2q-fnh">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <string key="text">Please email us at ambercalculator@gmail.com—we're looking forward to your suggestions and ideas to help us make the app better.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gQr-2q-fnh" secondAttribute="trailing" constant="10" id="1n1-nS-f5C">
+                                <variation key="heightClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="gQr-2q-fnh" firstAttribute="leading" secondItem="uKh-Hf-G8t" secondAttribute="leading" constant="10" id="IfO-Lq-nZ3">
+                                <variation key="heightClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="gQr-2q-fnh" firstAttribute="top" secondItem="b7i-X6-YiV" secondAttribute="bottom" constant="360" id="VuM-dz-nXu">
+                                <variation key="heightClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="gQr-2q-fnh" firstAttribute="centerY" secondItem="uKh-Hf-G8t" secondAttribute="centerY" id="ceE-al-u4P"/>
+                            <constraint firstItem="gQr-2q-fnh" firstAttribute="centerX" secondItem="uKh-Hf-G8t" secondAttribute="centerX" id="ckU-6d-klT"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="gQr-2q-fnh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1n1-nS-f5C"/>
+                                <exclude reference="IfO-Lq-nZ3"/>
+                                <exclude reference="VuM-dz-nXu"/>
+                                <exclude reference="ceE-al-u4P"/>
+                                <exclude reference="ckU-6d-klT"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="gQr-2q-fnh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1n1-nS-f5C"/>
+                                <include reference="IfO-Lq-nZ3"/>
+                                <include reference="VuM-dz-nXu"/>
+                                <include reference="ceE-al-u4P"/>
+                                <include reference="ckU-6d-klT"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="800"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CTK-Ch-Edx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="45.75"/>
         </scene>
     </scenes>
 </document>
