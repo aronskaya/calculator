@@ -96,7 +96,7 @@
 #pragma mark - Helper Functions Section
 
 /**
- Returns a string made of current backupResult
+ Returns a string, made of current backupResult
  */
 -(NSString *)stringForCurrentBackupResult {
     //checking for division on zero and other mathematical errors

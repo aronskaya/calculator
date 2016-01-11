@@ -41,9 +41,6 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 @property (strong, nonatomic) NSNumberFormatter *smallBigNumberFormatter;
 @property (strong, nonatomic) NSDecimalNumber *zero;
 
-@property (strong, nonatomic) UIViewController *popContentController;
-
-
 - (IBAction)zeroButton:(id)sender;
 - (IBAction)oneButton:(id)sender;
 - (IBAction)twoButton:(id)sender;
@@ -75,8 +72,6 @@ typedef NS_ENUM(NSInteger, LastButtonPressed) {
 -(NSDecimalNumber *)numberFromString:(NSString *)receivedNumberString;
 -(void)calculateContunuously;
 -(void)firstNumberSet;
-
-//-(void)presentPopup:(UIViewController *)controller;
 
 @end
 
