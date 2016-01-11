@@ -31,6 +31,7 @@
         <mutableArray key="SF-UI-Text-Light.otf">
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -574,9 +575,7 @@
                         <viewControllerLayoutGuide type="top" id="b7i-X6-YiV"/>
                         <viewControllerLayoutGuide type="bottom" id="Tqh-rU-9Ld"/>
                     </layoutGuides>
-
                     <view key="view" contentMode="scaleToFill" id="uKh-Hf-G8t">
-
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -590,24 +589,11 @@
                                 <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ol7-h8-hwA"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <exclude reference="ol7-h8-hwA"/>
-                                    </mask>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijl-D6-uUl">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="20"/>
                                 <state key="normal" title="Close"/>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="274" y="541" width="52" height="36"/>
-                                </variation>
                                 <connections>
                                     <action selector="closeButtonPressed:" destination="BQA-EF-I0L" eventType="touchUpInside" id="21W-2l-4E6"/>
                                 </connections>
