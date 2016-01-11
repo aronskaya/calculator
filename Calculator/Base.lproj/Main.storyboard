@@ -28,6 +28,7 @@
         </mutableArray>
         <mutableArray key="SF-UI-Text-Light.otf">
             <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -576,12 +577,13 @@
                         <viewControllerLayoutGuide type="bottom" id="Tqh-rU-9Ld"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uKh-Hf-G8t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQr-2q-fnh">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <string key="text">Please email us at ambercalculator@gmail.com—we're looking forward to your suggestions and ideas to help us make the app better.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <string key="text">Please feel free to contact us at any subject regarding the app. Looking forward to your suggestions and ideas at ambercalculator@gmail.com.</string>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
