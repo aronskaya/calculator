@@ -14,16 +14,7 @@
 
 @implementation JVPCalculatorVC
 
-@synthesize regularNumberFormatter;
-@synthesize smallBigNumberFormatter;
-@synthesize numberString;
-@synthesize result;
-@synthesize backupResult;
-@synthesize output;
-@synthesize firstNumber;
-@synthesize secondNumber;
-@synthesize backupSecondNumber;
-@synthesize zero;
+@synthesize regularNumberFormatter, smallBigNumberFormatter, numberString, result, backupResult, output,  firstNumber, secondNumber, backupSecondNumber, zero;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -195,8 +186,6 @@
     UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"Pop"];
     
     // present the controller
-    // on iPad, this will be a Popover
-    // on iPhone, this will be an action sheet
     controller.modalPresentationStyle = UIModalPresentationPopover;
     [self presentViewController:controller animated:YES completion:nil];
     
@@ -440,7 +429,7 @@
                 numberString = [self stringForCurrentBackupResult];
                 output.text = numberString;
                 numberString = @"";
-                firstNumber = zero;
+               firstNumber = zero;
             }
             else {
                 [self calculateContunuously];
