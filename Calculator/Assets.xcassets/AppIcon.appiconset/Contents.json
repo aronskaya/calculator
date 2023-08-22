@@ -1,11 +1,13 @@
 {
   "images" : [
     {
+      "filename" : "icon-20@1x.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
+      "filename" : "icon-20@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
@@ -53,6 +55,7 @@
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "icon-1024@1x.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
