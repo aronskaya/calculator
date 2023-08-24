@@ -32,7 +32,7 @@
 		6994263B1C4023E7006676CE /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
 		69A0DD1A1C4146F400A0A7D7 /* JVPPopoverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVPPopoverVC.h; sourceTree = "<group>"; };
 		69A0DD1B1C4146F400A0A7D7 /* JVPPopoverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVPPopoverVC.m; sourceTree = "<group>"; };
-		69F958B01C2DAFB600592020 /* CalculatorFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculatorFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69F958B01C2DAFB600592020 /* Amber Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amber Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F958B41C2DAFB600592020 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69F958B61C2DAFB600592020 /* JVPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVPAppDelegate.h; sourceTree = "<group>"; };
 		69F958B71C2DAFB600592020 /* JVPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVPAppDelegate.m; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		69F958B11C2DAFB600592020 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				69F958B01C2DAFB600592020 /* CalculatorFree.app */,
+				69F958B01C2DAFB600592020 /* Amber Calculator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 			);
 			name = "CalculatorFree Free";
 			productName = Calculator;
-			productReference = 69F958B01C2DAFB600592020 /* CalculatorFree.app */;
+			productReference = 69F958B01C2DAFB600592020 /* Amber Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -344,7 +344,7 @@
 				);
 				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ambercalculator;
-				PRODUCT_NAME = CalculatorFree;
+				PRODUCT_NAME = "Amber Calculator";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -367,7 +367,7 @@
 				);
 				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ambercalculator;
-				PRODUCT_NAME = CalculatorFree;
+				PRODUCT_NAME = "Amber Calculator";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
